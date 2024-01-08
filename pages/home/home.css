@@ -1,0 +1,136 @@
+body {
+    overflow-x: clip;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#hero-background {
+    position: absolute;
+    top: auto;
+    left: -300px;
+    bottom: auto;
+    z-index: -1;
+}
+
+.Hero {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 80px;
+    position: relative;
+
+
+    #second-div {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        top: -60px;
+
+        #left {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: center;
+        }
+    }
+
+
+    #hero-portrait {
+        position: relative;
+        right: -80px;
+        background: url("assets/bio-photo.png") bottom right;
+        background-size: cover;
+        box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.25);
+        overflow-y: visible;
+        overflow-x: clip;
+        width: 100%;
+        aspect-ratio: 16/9;
+
+
+        /* place the top layer directly on top */
+        img {
+
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            aspect-ratio: initial;
+            height: 134.3128781331029%;
+            z-index: 2;
+        }
+    }
+
+}
+
+.Scroll {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    p {
+        display: flex;
+        font-weight: 600;
+        mix-blend-mode: exclusion;
+        white-space: nowrap;
+
+        @supports not (-webkit-text-stroke: 2px #6B525B) {
+            color: #F6F6F5;
+            text-shadow: -1px 1px 0 #6B525B,
+            1px 1px 0 #6B525B,
+            1px -1px 0 #6B525B,
+            -1px -1px 0 #6B525B;
+        }
+
+        @supports (-webkit-text-stroke: 1px #6B525B) {
+            color: transparent;
+            -webkit-text-stroke: 0.5px #6B525B;
+        }
+    }
+
+
+    img {
+        mix-blend-mode: exclusion;
+        z-index: 1;
+    }
+
+}
+
+button {
+
+    padding: 6px 8px;
+
+    span {
+        transition: all 100ms ease;
+    }
+
+    .Icon-Container {
+        position: relative;
+    }
+
+    #Chevron {
+        opacity: 1;
+    }
+
+    #Arrow {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: -0.1rem;
+    }
+
+
+    &:hover {
+
+        gap: 10px;
+
+        #Arrow {
+            opacity: 1;
+        }
+
+        #Chevron {
+            opacity: 0;
+        }
+    }
+
+}
