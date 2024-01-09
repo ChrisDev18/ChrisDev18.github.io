@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
 }
 
 #hero-background {
@@ -11,14 +12,38 @@ body {
     left: -300px;
     bottom: auto;
     z-index: -1;
+    pointer-events: none;
 }
 
-.Hero {
+.Scroll {
+    flex-direction: row;
+    gap: 40px;
+    overflow: clip;
+    position: relative;
+    left: -80px;
+    width: 100vw;
+
+    img {
+        position: relative;
+        mix-blend-mode: exclusion;
+        z-index: 1;
+    }
+
+}
+
+Section {
     display: flex;
     flex-direction: column;
     padding: 40px 80px;
     position: relative;
 
+}
+
+#Hero {
+    overflow-y: clip;
+    height: 100%;
+    padding-bottom: 0px;
+    margin-bottom: -120px;
 
     #second-div {
         position: relative;
@@ -27,8 +52,8 @@ body {
         top: -60px;
 
         #left {
-            margin-top: 60px;
-            margin-bottom: 40px;
+            margin-top: 40px;
+            margin-bottom: 100px;
             display: flex;
             flex-direction: column;
             gap: 24px;
@@ -47,57 +72,38 @@ body {
         overflow-x: clip;
         width: 100%;
         aspect-ratio: 16/9;
-
+        top: -40px;
+        z-index: 1;
 
         /* place the top layer directly on top */
         img {
-
             position: absolute;
             bottom: 0;
             right: 0;
             aspect-ratio: initial;
             height: 134.3128781331029%;
-            z-index: 2;
+            z-index: 3;
+            pointer-events: none;
         }
     }
 
 }
 
-.Scroll {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
+#About {
+    background-color: #53F6A8;
 
-    p {
-        display: flex;
-        font-weight: 600;
-        mix-blend-mode: exclusion;
-        white-space: nowrap;
+    header {
+        position: relative;
 
-        @supports not (-webkit-text-stroke: 2px #6B525B) {
-            color: #F6F6F5;
-            text-shadow: -1px 1px 0 #6B525B,
-            1px 1px 0 #6B525B,
-            1px -1px 0 #6B525B,
-            -1px -1px 0 #6B525B;
-        }
-
-        @supports (-webkit-text-stroke: 1px #6B525B) {
-            color: transparent;
-            -webkit-text-stroke: 0.5px #6B525B;
+        h2 {
+            color: #FFFFFF;
         }
     }
 
-
-    img {
-        mix-blend-mode: exclusion;
-        z-index: 1;
-    }
 
 }
 
 button {
-
     padding: 6px 8px;
 
     span {
@@ -121,7 +127,6 @@ button {
 
 
     &:hover {
-
         gap: 10px;
 
         #Arrow {

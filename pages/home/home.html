@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="home.js"></script>
 </head>
 
 <body>
-    <section class="Hero">
+    <section id="Hero">
         <div id="header-div">
             <h1>Chris Wilson</h1>
 
             <div class="Scroll Large">
                 <img class="text" alt="Web dev, UI design, Software, Full-Stack"
-                     src="./assets/ScrollText.svg"/>
-
+                     src="./assets/ScrollText.svg"
+                     id="scroll-image"/>
             </div>
         </div>
 
@@ -43,7 +44,14 @@
             <div id="hero-portrait">
                 <img id="overlay" src="./assets/bio-overlay.png" alt="bio photo"/>
             </div>
+
         </div>
+    </section>
+
+    <section id="About">
+        <header>
+            <h2 class="Shadow-Outline" aria-label="What I do">What I do</h2>
+        </header>
     </section>
 
 </body>

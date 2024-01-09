@@ -6,11 +6,12 @@ body {
     background-color: #F6F6F5;
 }
 
-h1 {
+h1, h2 {
     all: unset;
     font-size: 7em;
     font-weight: 700;
     color: #363636;
+    letter-spacing: 5px;
 }
 
 .Large {
@@ -84,6 +85,32 @@ button {
         &::before {
             box-shadow: none;
         }
+    }
+
+}
+
+
+
+
+.Shadow-Outline {
+    position: relative;
+    z-index: 0;
+
+    &::after {
+        all: inherit;
+        content: attr(aria-label);
+        color: #53F6A8;
+
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        text-shadow:
+                1px 1px 0 #FFFFFF,
+                -1px 1px 0 #FFFFFF,
+                -1px -1px 0 #FFFFFF,
+                1px -1px 0 #FFFFFF;
+        z-index: -1;
+        white-space: nowrap;
     }
 
 }
