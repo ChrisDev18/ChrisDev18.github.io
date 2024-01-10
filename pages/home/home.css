@@ -16,15 +16,14 @@ body {
 }
 
 .Scroll {
-    flex-direction: row;
-    gap: 40px;
-    overflow: clip;
+    overflow: hidden;
     position: relative;
-    left: -80px;
     width: 100vw;
+    left: -80px;
 
     img {
         position: relative;
+        left: 80px;
         mix-blend-mode: exclusion;
         z-index: 1;
     }
@@ -44,6 +43,8 @@ Section {
     height: 100%;
     padding-bottom: 0px;
     margin-bottom: -120px;
+
+
 
     #second-div {
         position: relative;
@@ -82,7 +83,7 @@ Section {
             right: 0;
             aspect-ratio: initial;
             height: 134.3128781331029%;
-            z-index: 3;
+            /*z-index: 3;*/
             pointer-events: none;
         }
     }
@@ -91,13 +92,66 @@ Section {
 
 #About {
     background-color: #53F6A8;
+    display: flex;
+
+    gap: 24px;
 
     header {
-        position: relative;
+        /*position: relative;*/
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
         h2 {
             color: #FFFFFF;
         }
+
+        .Scroll {
+            position: absolute;
+            top: -10px;
+            left: 0px;
+            z-index: 0;
+
+            img {
+                left: 20px;
+            }
+        }
+
+
+    }
+
+    header::before {
+        position: absolute;
+        display: block;
+        content: "";
+        background-color: transparent;
+        border: solid #FFFFFF 2px;
+        height: 0;
+        width: 50px;
+        left: 0;
+    }
+
+    & > div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Left {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        justify-content: center;
+
+        ul {
+            margin: 0;
+            & > li {
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .Right {
+
     }
 
 
@@ -138,4 +192,17 @@ button {
         }
     }
 
+}
+
+.rotate {
+    animation: rotation 20s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

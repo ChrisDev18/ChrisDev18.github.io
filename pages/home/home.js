@@ -13,22 +13,32 @@ function parallax(event) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const scrollingImage = document.getElementById('scroll-image');
+    const scrollingImages = document.querySelectorAll('.Scroll > img');
     const imageContainer = document.querySelector('.Scroll');
 
-    let currentPosition = 0;
-    const scrollSpeed = 0.5; // Adjust the scrolling speed as needed
+    let vals = []
+    scrollingImages.forEach(image => {
+        vals.push({
+            initial: 80,
+            currentPosition: 0,
+            scrollSpeed: 0.5
+        });
+    });
+
+    vals[1].scrollSpeed = 0.3;
 
     function scrollImage() {
-        currentPosition -= scrollSpeed;
-        scrollingImage.style.left = currentPosition + 'px';
+        scrollingImages.forEach((image, i) => {
+            vals[i].currentPosition += vals[i].scrollSpeed;
+            image.style.left = vals[i].initial - vals[i].currentPosition + 'px';
 
-        // Reset the position when the image is completely off-screen
-        new_end = currentPosition <= - (scrollingImage.width / 2);
-        if (new_end) {
-            // currentPosition = imageContainer.clientWidth;
-            currentPosition = 0;
-        }
+            // Reset the position when the image is completely off-screen
+            let new_end = vals[i].currentPosition  >= (image.width/2);
+            if (new_end) {
+                // currentPosition = imageContainer.clientWidth;
+                vals[i].currentPosition = 0;
+            }
+        })
     }
 
     // Set the interval to scroll the image
