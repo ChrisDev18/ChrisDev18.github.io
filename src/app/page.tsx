@@ -16,6 +16,7 @@ import greenguide from "/public/greenguide.png";
 import uob_logo from "/public/uob_logo.png";
 import insa_lyon_logo from "/public/insa_lyon_logo.jpg";
 import Carousel from "@/app/components/Carousel";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -180,7 +181,7 @@ export default function Home() {
 
               <div className={"flex justify-between border-2 border-black dark:border-emerald-100 border-dashed my-12 lg:my-16 mx-5"}>
 
-                <motion.button
+                <motion.div
                     initial={"hidden"}
                     whileInView={"rest"}
                     viewport={{ once: true }}
@@ -191,24 +192,26 @@ export default function Home() {
                     // transition={{ duration: 0.01, type: "spring", stiffness: 200 }}
                     className="w-[45%] lg:w-1/2 relative -left-5 -top-10 lg:-left-16"
                 >
-                  <Image
-                      src={uob_campus}
-                      alt={"A picture of The University of Birmingham's campus"}
-                      width={400} height={400}
-                      className={"relative aspect-square object-cover pointer-events-none"}
-                  />
-
-                  <motion.div variants={logoVariants} className={"absolute w-1/3 aspect-square object-cover top-6 -right-8 pointer-events-none"}>
+                  <Link href={"/studies/uob"}>
                     <Image
-                        className={"-rotate-6"}
-                        src={uob_logo}
-                        alt={"The University of Birmingham's logo"}
-                        width={200} height={200}
+                        src={uob_campus}
+                        alt={"A picture of The University of Birmingham's campus"}
+                        width={400} height={400}
+                        className={"relative aspect-square object-cover pointer-events-none"}
                     />
-                  </motion.div>
-                </motion.button>
 
-                <motion.button
+                    <motion.div variants={logoVariants} className={"absolute w-1/3 aspect-square object-cover top-6 -right-8 pointer-events-none"}>
+                      <Image
+                          className={"-rotate-6"}
+                          src={uob_logo}
+                          alt={"The University of Birmingham's logo"}
+                          width={200} height={200}
+                      />
+                    </motion.div>
+                  </Link>
+                </motion.div>
+
+                <motion.div
                     initial={"hidden"}
                     whileInView={"rest"}
                     viewport={{ once: true }}
@@ -218,23 +221,25 @@ export default function Home() {
                     drag dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
                     className={"w-[45%] lg:w-1/2 relative left-5 top-10 lg:left-16"}
                 >
-                  <Image
-                      src={insa_lyon_campus}
-                      alt={"A picture of INSA Lyon's campus"}
-                      width={400} height={400}
-                      className={"relative aspect-square object-cover pointer-events-none"}
-                  />
-
-                  <motion.div variants={insa_logoVariants} className={"absolute -bottom-2 -left-8 pointer-events-none"}>
+                  <Link href={"/studies/insa"}>
                     <Image
-                        src={insa_lyon_logo}
-                        alt={"A picture of The University of Birmingham's campus"}
-                        width={800} height={200}
-                        className={"rotate-2 w-3/4 object-cover"}
+                        src={insa_lyon_campus}
+                        alt={"A picture of INSA Lyon's campus"}
+                        width={400} height={400}
+                        className={"relative aspect-square object-cover pointer-events-none"}
                     />
-                  </motion.div>
 
-                </motion.button>
+                    <motion.div variants={insa_logoVariants} className={"absolute -bottom-2 -left-8 pointer-events-none"}>
+                      <Image
+                          src={insa_lyon_logo}
+                          alt={"A picture of The University of Birmingham's campus"}
+                          width={800} height={200}
+                          className={"rotate-2 w-3/4 object-cover"}
+                      />
+                    </motion.div>
+                  </Link>
+
+                </motion.div>
 
               </div>
 

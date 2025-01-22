@@ -16,9 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={"h-full"}>
-      <body className={`h-full`}>
+      <body className={`min-h-full`}>
         {/*<Navbar />*/}
-        <main className="min-h-full flex flex-col overflow-hidden">
+        <main className="flex flex-col overflow-hidden">
           {children}
         </main>
         <footer className={`${raleway.className} flex flex-col items-center bg-neutral-900 text-white noise`} >

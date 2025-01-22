@@ -5,7 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  basePath: "/chrisdev18.github.io"
+  basePath: process.env.NODE_ENV === 'production' ? "/chrisdev18.github.io" : ""
 };
 
 export default nextConfig;

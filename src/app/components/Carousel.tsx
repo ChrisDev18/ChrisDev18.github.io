@@ -21,17 +21,6 @@ interface CarouselProps {
   projects: Project[]; // List of projects to display
 }
 
-function getBackgroundImage(srcSet = '') {
-  const imageSet = srcSet
-      .split(', ')
-      .map((str) => {
-        const [url, dpi] = str.split(' ')
-        return `url("${url}") ${dpi}`
-      })
-      .join(', ')
-  return `image-set(${imageSet})`
-}
-
 export default function Carousel({ title, projects }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -44,26 +33,23 @@ export default function Carousel({ title, projects }: CarouselProps) {
   };
 
   const currentProject = projects[currentIndex];
-  let backgroundImage: string | undefined = undefined;
-  if (currentProject.bg_img) {
-    const {props: { srcSet }} = getImageProps({ alt: '', width: 5, height: 5, src: currentProject.bg_img })
-    backgroundImage = getBackgroundImage(srcSet)
-  }
 
   return (
       <div className="relative -z-10">
         {/* Background Blur */}
-        {backgroundImage &&
+        {currentProject.bg_img &&
           <AnimatePresence>
             <motion.div
-              key={backgroundImage} // Key ensures animation on change
+              key={currentProject.title} // Key ensures animation on change
               initial={{opacity: 0}}
               whileInView={{opacity: 1}}
               exit={{opacity: 0}}
               transition={{duration: 0.5}}
-              style={{backgroundImage: backgroundImage, willChange: "filter"}}
-              className="absolute top-0 bottom-0 left-0 right-0 blur-3xl bg-cover -z-10 opacity-80"
-            />
+              style={{willChange: "filter"}}
+              className="absolute top-0 bottom-0 left-0 right-0 blur-3xl object-cover -z-10 opacity-80"
+            >
+              <Image src={currentProject.bg_img} alt={"Blurred ambient background"} className={"w-full h-full"} />
+            </motion.div>
           </AnimatePresence>
         }
 
