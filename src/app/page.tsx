@@ -289,7 +289,7 @@ export default function Home() {
                 members: 1,
                 bg_img: burn_bg,
                 img: {src: burn, landscape: true},
-                link: "https://github.com/ChrisDev18/burnfm-recoded"
+                link: "/work/burnfm"
               },
               {
                 title: "TrackTracker - Spotify Listening Analyser",

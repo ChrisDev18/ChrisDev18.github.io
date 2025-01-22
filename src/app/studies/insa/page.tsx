@@ -1,53 +1,15 @@
 "use client"
 
-import Link from "next/link";
-import Image from "next/image";
-
 import insa_campus from "/public/insa_lyon_campus.jpg";
 import {raleway, robotoSlab} from "@/app/fonts";
-import {motion, useScroll, useTransform} from "motion/react";
-import {ChevronLeftIcon} from "@radix-ui/react-icons";
+import Hero from "@/app/components/Hero";
 
 export default function InsaPage() {
-  const { scrollY } = useScroll(); // Track the vertical scroll position
-  const y = useTransform(scrollY, [0, 500], [0, 200]); // Adjust the range to control the parallax speed
 
   return (
       <div className="flex-grow flex flex-col bg-neutral-100 text-gray-900 dark:bg-neutral-900 dark:text-white">
         <header className="relative">
-          <div className="relative flex flex-col items-center justify-end h-[50vh] min-h-fit p-10 bg-neutral-900">
-            <motion.div
-                initial={{ y: 25, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                style={{ y }}
-                className="absolute inset-0 w-full h-full z-0"
-            >
-              <Image
-                  src={insa_campus}
-                  alt={"Photo of The University of Birmingham's campus"}
-                  className="absolute inset-0 object-cover w-full h-full"
-                  layout="fill"
-                  style={{maskImage: "linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 70%)"}}
-              />
-            </motion.div>
-
-            <div className="z-10">
-              <Link href={"/"}
-                    className={`${raleway.className} flex items-center justify-center gap-1 text-xl text-center font-semibold text-white py-2 px-4 rounded hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                    aria-label="Navigate to Home">
-                <ChevronLeftIcon />
-                Home
-              </Link>
-              <motion.h1
-                  initial={{ y: -25, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeOut", delay: 0.1}}
-                  className={`${robotoSlab.className} text-5xl text-center font-bold text-white drop-shadow-lg`}>
-                INSA Lyon
-              </motion.h1>
-            </div>
-          </div>
+          <Hero title={"INSA Lyon"} img={insa_campus} />
         </header>
 
         <section className={"flex flex-col bg-emerald-50 dark:bg-lime-950 items-center z-20"}>
