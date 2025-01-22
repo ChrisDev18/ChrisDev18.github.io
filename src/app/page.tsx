@@ -322,12 +322,14 @@ export default function Home() {
                   'Identifying sexism within tweets using Fine-Tuned XLM-RoBERTa and Gemini Zero-Shot Learning.',
                   bg_img: exist_bg,
                   members: 3,
+                  link: "/work/exist"
                 },
                 {
                   title: 'IMDB Review Sentiment Analysis',
                   description: 'Determining whether a review is negative or positive, trained on IMDB reviews for film and TV.',
                   bg_img: gameif_bg,
-                  members: 7,
+                  members: 4,
+                  link: "/work/imdb-analysis"
                 },
                 ]}
             />

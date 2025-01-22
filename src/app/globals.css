@@ -38,6 +38,10 @@ html, body {
     --hover-color: #000000;
 }
 
+strong {
+    font-weight: 800;
+}
+
 .text-custom {
     -webkit-text-stroke: 1px black;
 
