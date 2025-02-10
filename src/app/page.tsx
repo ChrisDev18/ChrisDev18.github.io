@@ -1,7 +1,7 @@
 "use client"
-import { motion } from "motion/react";
+import {motion, useScroll, useTransform} from "motion/react";
 import {raleway, robotoSlab} from "@/app/fonts";
-import {CSSProperties} from "react";
+import {CSSProperties, useRef} from "react";
 import TypewriterText from "@/app/Effects/TypewriterText";
 import Image from "next/image";
 import uob_campus from "/public/uob_campus.webp";
@@ -20,6 +20,11 @@ import Link from "next/link";
 
 
 export default function Home() {
+  const ref = useRef(null)
+  const {scrollYProgress} = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const yBg = useTransform(scrollYProgress, [0, 0.5, 1], [-200, 0, 200]);
+  const yTitle = useTransform(scrollYProgress, [0, 0.5, 1], [-100, 0, 100]); // Adjust the range to control the parallax speed
+
   const marqueeVariants = (_duration: number, direction: "left" | "right", delay: number) => ({
     animate: {
       x: direction == "left" ? [20, 0, -1025, -1045] : [-20, 0, 1025, 1045],
@@ -101,8 +106,8 @@ export default function Home() {
 
   return (
       <div className="flex-grow flex flex-col justify-center bg-neutral-100 text-gray-900 dark:bg-neutral-950 dark:text-white">
-        <section className="h-screen flex flex-col justify-center items-center gap-4 bg-white-50 text-gray-900 dark:text-white p-6 noise">
-          <div className="backdrop-text">
+        <section ref={ref} className="h-screen flex flex-col justify-center items-center gap-4 bg-white-50 text-gray-900 dark:text-white p-6 noise">
+          <motion.div style={{y: yBg}} className="backdrop-text">
             {[30, 50, 60, 30, 50, 60, 30, 50, 60, 30].map((speed, i) =>
                 <div key={i} className={`marquee ${i % 2 == 0 ? "left-1" : "right-1"}`}>
                   <motion.div
@@ -133,9 +138,10 @@ export default function Home() {
                   </motion.div>
                 </div>
             )}
-          </div>
+          </motion.div>
 
           <motion.h1
+              style={{y: yTitle}}
               initial={{opacity: 0, letterSpacing: "0.5rem", fontWeight: 400, width: "115%"}}
               animate={{opacity: 1, letterSpacing: "0rem", fontWeight: 700, width: "100%"}}
               transition={{duration: 2, ease: "easeOut"}}
@@ -143,10 +149,12 @@ export default function Home() {
             Chris Wilson
           </motion.h1>
 
-          <motion.span initial={{opacity: 0}}
-                       animate={{opacity: 1}}
-                       transition={{duration: 2, ease: "easeOut", delay: 1}}
-                       className="text-center font-bold z-10">
+          <motion.span
+              style={{y: yTitle}}
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              transition={{duration: 2, ease: "easeOut", delay: 1}}
+              className="text-center font-bold z-10">
             <TypewriterText
                 className={`${raleway.className}`}
                 delay={1}
@@ -163,7 +171,7 @@ export default function Home() {
 
         </section>
 
-        <section className={"flex flex-col bg-emerald-50 dark:bg-lime-950 items-center"}>
+        <section className={"flex flex-col bg-emerald-50 dark:bg-lime-950 items-center z-10"}>
           <div className={"flex flex-col px-10 py-16 gap-8 max-w-4xl w-full"}>
             <div className={"flex flex-col gap-6 items-center"}>
               <h2 className={`${robotoSlab.className} mt-8 text-4xl text-center font-bold`}>

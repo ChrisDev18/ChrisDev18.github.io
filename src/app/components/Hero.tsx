@@ -9,6 +9,7 @@ import Image, { StaticImageData } from "next/image";
 export default function Hero({title, img}: { title: string, img: StaticImageData }) {
   const { scrollY } = useScroll(); // Track the vertical scroll position
   const y = useTransform(scrollY, [0, 500], [0, 200]); // Adjust the range to control the parallax speed
+  const yTitle = useTransform(scrollY, [0, 500], [0, 100]); // Adjust the range to control the parallax speed
 
   return (
       <div className="relative flex flex-col items-center justify-end h-[50vh] min-h-fit p-10 bg-neutral-900">
@@ -31,7 +32,8 @@ export default function Hero({title, img}: { title: string, img: StaticImageData
         <motion.div className="z-10"
                     initial={{y: -25, opacity: 0}}
                     animate={{y: 0, opacity: 1}}
-                    transition={{duration: 0.5, ease: "easeOut", delay: 0.3}}>
+                    transition={{duration: 0.5, ease: "easeOut", delay: 0.3}}
+                    style={{y: yTitle}}>
           <Link href={"/"}
                 className={`${raleway.className} flex items-center justify-center gap-1 text-xl text-center font-semibold text-white py-2 px-4 rounded hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                 aria-label="Navigate to Home">

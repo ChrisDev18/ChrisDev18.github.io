@@ -22,8 +22,8 @@ export default function RootLayout({
           {children}
         </main>
         <footer className={`${raleway.className} flex flex-col items-center bg-neutral-900 text-white noise`} >
-        <div className={"flex flex-col py-6 px-10 max-w-4xl w-full"}>
-            <div className={"flex gap-2 items-center mb-4"}>
+          <div className={"flex flex-col py-10 px-10 max-w-4xl w-full"}>
+            <div className={"flex gap-2 items-center mb-8"}>
               <span className={`${robotoSlab.className} text-2xl text-left font-bold mr-2`}>Chris Wilson</span>
               <a className={"hover:text-blue-500 transition-colors duration-100"} href={"https://www.linkedin.com/in/chriswilson01/"}>
                 <LinkedInLogoIcon height="30" width="30"/>
@@ -33,7 +33,7 @@ export default function RootLayout({
               </a>
             </div>
 
-            <p className="mb-2">Website personally made with React and Next.js</p>
+            <p className="mb-2">Website personally made with React and Next.js, styled manually with Tailwind CSS.</p>
             <p>All rights reserved 2025</p>
           </div>
         </footer>
