@@ -12,7 +12,7 @@ export default function Hero({title, img}: { title: string, img: StaticImageData
   const yTitle = useTransform(scrollY, [0, 500], [0, 100]); // Adjust the range to control the parallax speed
 
   return (
-      <div className="relative flex flex-col items-center justify-end h-[50vh] min-h-fit p-10 bg-neutral-900">
+      <div className="relative flex flex-col items-center justify-end h-[50vh] min-h-fit p-10 bg-neutral-900 overflow-clip">
         <motion.div
             initial={{y: 25, scale: 1.2, opacity: 0}}
             animate={{y: 0, scale: 1, opacity: 1}}
@@ -24,7 +24,6 @@ export default function Hero({title, img}: { title: string, img: StaticImageData
               src={img}
               alt={"Photo of The University of Birmingham's campus"}
               className="absolute inset-0 object-cover w-full h-full"
-              layout="fill"
               style={{maskImage: "linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 70%)"}}
           />
         </motion.div>

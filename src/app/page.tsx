@@ -6,9 +6,9 @@ import TypewriterText from "@/app/Effects/TypewriterText";
 import Image from "next/image";
 import uob_campus from "/public/uob_campus.webp";
 import insa_lyon_campus from "/public/insa_lyon_campus.jpg";
-import burn_bg from "/public/burnfm-recoded-bg.png";
+import burn_bg from "/public/burnfm/burnfm-recoded-bg.png";
 import exist_bg from "/public/exist2024_bg.png";
-import burn from "/public/burnfm1.png";
+import burn from "/public/burnfm/burnfm1.png";
 import spotifyapp_bg from "/public/spotifyapp_bg.png";
 import gameif_bg from "/public/gameif_bg.png";
 import greenguide from "/public/greenguide.png";
@@ -88,21 +88,22 @@ export default function Home() {
   }
 
   const langs = [
-      {name: "Java", color: "#DA3832" },
-    {name: "Python", color: "#ffd343" },
-    {name: "TypeScript", color: "#3178c6" },
-    {name: "C", color: "#3178c6" },
-    {name: "C++", color: "#3178c6" },
-    {name: "Figma", color: "#e63fb1"},
-    {name: "React", color: "#61DAFB"},
-    {name: "Angular", color: "#DD0031"},
-    {name: "Next.js", color: "#000000"},
-    {name: "Radix UI", color: "#000000"},
-    {name: "PyTorch", color: "#EE4C2C"},
-    {name: "SpaCy", color: "#09A3D5"},
-    {name: "JavaScript", color: "#F7DF1E"},
-    {name: "PostgreSQL", color: "#336791"},
-    {name: "MySQL", color: "#4479A1"} ];
+    { name: "Java", color: "#DA3832" },
+    { name: "Python", color: "#FFD343" },
+    { name: "TypeScript", color: "#3178C6" },
+    { name: "C", color: "#3178C6" },
+    { name: "C++", color: "#3178C6" },
+    { name: "Figma", color: "#E63FB1" },
+    { name: "React", color: "#61DAFB" },
+    { name: "Angular", color: "#DD0031" },
+    { name: "Next.js", color: "#000000", dark: "#FFFFFF" }, // Kept the custom dark mode color
+    { name: "Radix UI", color: "#000000", dark: "#FFFFFF" },
+    { name: "PyTorch", color: "#EE4C2C" },
+    { name: "SpaCy", color: "#09A3D5" },
+    { name: "JavaScript", color: "#F7DF1E" },
+    { name: "PostgreSQL", color: "#336791" },
+    { name: "MySQL", color: "#4479A1" }
+  ];
 
   return (
       <div className="flex-grow flex flex-col justify-center bg-neutral-100 text-gray-900 dark:bg-neutral-950 dark:text-white">
@@ -121,19 +122,19 @@ export default function Home() {
                       animate="animate"
                   >
                     {shuffle(langs).map((item, i) =>
-                        <a
+                        <span
                             key={i}
                             className={`
                               ${raleway.className}
                               text-white dark:text-gray-900 opacity-25 font-bold
                               hover:opacity-100 hover:scale-110
-                              transition-transform ease-out text-custom`
+                              transition-transform ease-out text-custom select-none cursor-default`
                             }
-                            style={{'--hover-color': item.color} as CSSProperties}
-                            href={"#"} suppressHydrationWarning
+                            style={{'--hover-color': item.color, '--hover-color-dark': item.dark ?? item.color} as CSSProperties}
+                            suppressHydrationWarning
                         >
                           {item.name}
-                        </a>
+                        </span>
                     )}
                   </motion.div>
                 </div>
@@ -268,10 +269,10 @@ export default function Home() {
                 languages I hear from friends.
               </p>
 
-              <p className={`${raleway.className} text-center font-medium max-w-2xl`}>
-                Going out is great, but also have to say nothing quite beats a cosy night in with friends.
-                I love a good action/fantasy film like Hunger Games, Twilight or Harry Potter.
-              </p>
+              {/*<p className={`${raleway.className} text-center font-medium max-w-2xl`}>*/}
+              {/*  Going out is great, but also have to say nothing quite beats a cosy night in with friends.*/}
+              {/*  I love a good action/fantasy film like Hunger Games, Twilight or Harry Potter.*/}
+              {/*</p>*/}
 
 
             </div>
@@ -280,7 +281,7 @@ export default function Home() {
 
         <section className={"flex flex-col bg-gray-900 text-white items-center"}>
           <div className={"relative z-10 flex flex-col px-10 py-16 gap-8 max-w-4xl w-full"}>
-            <h2 className={`${robotoSlab.className} text-5xl text-left font-bold text-emerald-100`}>
+            <h2 className={`${robotoSlab.className} text-5xl text-left font-bold`}>
               My work
             </h2>
 
@@ -293,10 +294,10 @@ export default function Home() {
             <Carousel title="Application Development" projects={[
               {
                 title: "Burn FM",
-                description: "Recoding BurnFM.com using React and Next.js",
+                description: "Recoding Burn FM's website and creating a simple website admin panel using React and Next.js",
                 members: 1,
                 bg_img: burn_bg,
-                img: {src: burn, landscape: true},
+                img: {src: burn, landscape: false},
                 link: "/work/burnfm"
               },
               {
@@ -317,6 +318,7 @@ export default function Home() {
                 members: 6,
                 bg_img: exist_bg,
                 img: {src: greenguide, landscape: false},
+                link: "/work/green-guide"
               },
 
             ]} />

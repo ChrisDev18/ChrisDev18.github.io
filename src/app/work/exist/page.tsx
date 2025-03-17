@@ -3,31 +3,9 @@
 import Hero from "@/app/components/Hero";
 import exist_hero from "/public/exist-hero.png";
 import {raleway} from "@/app/fonts";
-import {motion} from "motion/react";
-import Link from "next/link";
-import Image from "next/image";
-import burn_img1 from "/public/burnfm1.png";
-import burn_admin1 from "/public/burnfm/burnadmin1.png";
-import {ChevronRightIcon} from "@radix-ui/react-icons";
+import Hyperlink from "@/app/components/Hyperlink";
 
 export default function ExistPage() {
-  const imgVariants = {
-    hidden: { opacity: 0, scale: 0.5 },
-    rest: {  opacity: 1, scale: 1 },
-    hover: { y: -5, scale: 1.1 },
-    pressed: { x: -20, rotate: -4, scale: 0.9 },
-  }
-
-  const logoVariants = {
-    rest: { x: 0, y: 0, rotate: 0, scale: 1 },
-
-  }
-
-  const insa_logoVariants = {
-    rest: { y: 0, x: 0, rotate: 0, scale: 1 },
-    hover: { y: 10, scale: 1.03 },
-    pressed: { y: -5, x: 15, rotate: 2, scale: 0.95 },
-  }
 
   return (
       <div className={"flex flex-col flex-grow bg-neutral-100 text-neutral-900 dark:text-white"}>
@@ -36,47 +14,6 @@ export default function ExistPage() {
         </header>
 
         <section className={"flex flex-col items-center z-20 bg-neutral-100 dark:bg-neutral-900"}>
-
-          {/*<div className={"flex justify-center my-20 bg-gray-700 w-full"}>*/}
-          {/*  <motion.div*/}
-          {/*      initial={"hidden"}*/}
-          {/*      whileInView={"rest"}*/}
-          {/*      viewport={{once: true}}*/}
-          {/*      variants={imgVariants}*/}
-          {/*      className={"relative -my-5 pointer-events-none"}*/}
-          {/*  >*/}
-          {/*    <Link href={""}>*/}
-          {/*      <motion.div variants={imgVariants}*/}
-          {/*                  whileHover={"hover"}*/}
-          {/*                  whileTap={"pressed"}*/}
-          {/*                  drag dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}*/}
-          {/*                  className={"relative"}>*/}
-          {/*        <Image*/}
-          {/*            src={burn_admin1}*/}
-          {/*            alt={"A picture of INSA Lyon's campus"}*/}
-          {/*            width={500} height={400}*/}
-          {/*            className={"relative object-cover pointer-events-none -right-4 top-0"}*/}
-          {/*        />*/}
-          {/*      </motion.div>*/}
-          {/*    </Link>*/}
-
-          {/*    <Link href={""}>*/}
-          {/*      <motion.div variants={insa_logoVariants}*/}
-          {/*                  className={"absolute -left-4 -bottom-10"}*/}
-          {/*                  drag dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}>*/}
-          {/*        <Image*/}
-          {/*            src={burn_img1}*/}
-          {/*            alt={"A picture of The University of Birmingham's campus"}*/}
-          {/*            width={800} height={200}*/}
-          {/*            className={"rotate-2 w-1/2 object-cover"}*/}
-          {/*        />*/}
-          {/*      </motion.div>*/}
-          {/*    </Link>*/}
-
-
-          {/*  </motion.div>*/}
-          {/*</div>*/}
-
           <div className={"flex flex-col px-10 py-16 gap-8 max-w-3xl w-full"}>
             <div className={"flex flex-col gap-6"}>
 
@@ -89,10 +26,13 @@ export default function ExistPage() {
                 deals with the motivations behind such expressions.
               </p>
 
-              <Link href={"https://nlp.uned.es/exist2024/"}
-                    className={`${raleway.className} flex items-center justify-start gap-1 text-xl text-center font-semibold rounded hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}>
-                Learn more about EXIST <ChevronRightIcon/>
-              </Link>
+              <span>
+
+                 <Hyperlink href={"https://nlp.uned.es/exist2024/"} className={`text-xl ${raleway.className}`}>
+                  Learn more about EXIST
+                 </Hyperlink>
+
+              </span>
 
               <p className={`${raleway.className} font-medium max-w-2xl`}>
                 To address these tasks, we leverage state-of-the-art natural language processing techniques, including
@@ -116,11 +56,9 @@ export default function ExistPage() {
                 The code for our project is freely available at:
               </p>
 
-              <Link href={"https://github.com/lorenzocal/exist2024"}
-                    className={`${raleway.className} flex items-center justify-start gap-1 text-xl text-center font-semibold rounded hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}>
-                https://github.com/lorenzocal/exist2024 <ChevronRightIcon/>
-              </Link>
-
+              <span>
+                <Hyperlink href={"https://github.com/lorenzocal/exist2024"} className={`text-xl ${raleway.className}`}>https://github.com/lorenzocal/exist2024</Hyperlink>
+              </span>
 
               <h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>
                 Fine-tuning an XLM-RoBERTa model
@@ -159,10 +97,7 @@ export default function ExistPage() {
                   Where input_ids is a list of XLM-RoBERTa tokenizer’s representation for each word in a tweet, and label
                   is the label assigned to each example: 1 for “YES”, 0 for “NO”.
                 </li>
-
               </ul>
-
-
 
             </div>
           </div>

@@ -103,14 +103,14 @@ export default function ImdbAnalysisPage() {
               </ul>
 
 
-              <h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>
-                SpaCy&#39;s TextCategorizer model
-              </h2>
+              {/*<h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>*/}
+              {/*  SpaCy&#39;s TextCategorizer model*/}
+              {/*</h2>*/}
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
-                My approach was with SpaCy’s TextCategorizer model. I had a little experience with using this framework
-                and knew this was a categorisation problem.
-              </p>
+              {/*<p className={`${raleway.className} font-medium max-w-2xl`}>*/}
+              {/*  My approach was with SpaCy’s TextCategorizer model. I had a little experience with using this framework*/}
+              {/*  and knew this was a categorisation problem.*/}
+              {/*</p>*/}
 
             </div>
           </div>

@@ -36,6 +36,7 @@ html, body {
 
 :root {
     --hover-color: #000000;
+    --hover-color-dark: #000000;
 }
 
 strong {
@@ -52,6 +53,13 @@ strong {
     &:hover {
         -webkit-text-stroke: 1px var(--hover-color);
         color: var(--hover-color);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        &:hover {
+            color: var(--hover-color-dark);
+            -webkit-text-stroke: 1px var(--hover-color-dark);
+        }
     }
 }
 

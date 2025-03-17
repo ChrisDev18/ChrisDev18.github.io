@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import {raleway, robotoSlab} from "@/app/fonts";
 import {GitHubLogoIcon, LinkedInLogoIcon} from "@radix-ui/react-icons";
+import NextTopLoader from "nextjs-toploader";
 
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={"h-full"}>
       <body className={`min-h-full flex flex-col`}>
+        <NextTopLoader />
         {/*<Navbar />*/}
         <main className="flex flex-col overflow-hidden flex-grow">
           {children}

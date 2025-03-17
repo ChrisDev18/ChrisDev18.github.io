@@ -73,10 +73,7 @@ export default function InsaPage() {
                   <CourseCards items={if3} className="relative" />
                 </div>
 
-
-
-                <hr/>
-
+                <hr className={"border-black border-t-2 dark:border-white dark:border-t-[1px]"}/>
 
                 <div className="py-4 pl-8 relative flex flex-col overflow-y-clip">
                   <motion.p style={{y: y3}} className={`absolute -left-2 top-1/2 -translate-y-1/2 ${raleway.className} lining-nums text-8xl font-semibold opacity-50`}>
@@ -86,7 +83,7 @@ export default function InsaPage() {
                   <CourseCards items={if4} className="relative" />
                 </div>
 
-                <hr/>
+                <hr className={"border-black border-t-2 dark:border-white dark:border-t-[1px]"}/>
 
                 <div className="py-4 pl-8 relative flex flex-col overflow-y-clip">
                   <motion.p style={{y: y3}} className={`absolute -left-2 top-1/2 -translate-y-1/2 ${raleway.className} lining-nums text-8xl font-semibold opacity-50`}>

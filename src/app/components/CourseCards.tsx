@@ -26,7 +26,7 @@ export default function CourseCards({items, className}: {items: CourseItem[], cl
                 key={item.id}
                 layoutId={`card-${item.id}`}
                 onClick={() => handleClick(item)}
-                className={"text-left bg-neutral-950 p-5 text-white cursor-pointer outline outline-2 outline-transparent hover:underline focus:underline hover:outline-white focus:outline-white hover:outline-offset-4 focus:outline-offset-4 transition-[outline,outline-offset]"}
+                className={"text-left bg-neutral-950 p-5 text-white cursor-pointer outline outline-2 outline-transparent hover:underline focus-visible:underline hover:outline-black focus-visible:outline-black dark:hover:outline-white dark:focus-visible:outline-white hover:outline-offset-[6px] focus-visible:outline-offset-[6px] transition-[outline,outline-offset]"}
             >
               <motion.h2 className={`${raleway.className} text-xl font-medium`}>{item.title}</motion.h2>
             </motion.button>

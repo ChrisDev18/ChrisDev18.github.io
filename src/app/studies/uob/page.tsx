@@ -7,6 +7,7 @@ import CourseCards from "@/app/components/CourseCards";
 import Link from "next/link";
 import {y1_items, y2_items} from "@/app/studies/module_information";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
+import Hyperlink from "@/app/components/Hyperlink";
 
 export default function UoBPage() {
   return (
@@ -55,9 +56,9 @@ export default function UoBPage() {
               </h3>
 
               <p className={`${raleway.className} font-medium`}>
-                My third year is being spend studying abroad in France. <Link href={"/studies/insa"} className={"inline-flex items-center justify-center hover:underline focus:underline"}>
-                For more information, see INSA Lyon <ChevronRightIcon/>
-              </Link>
+                My third year is being spend studying abroad in France. For more information, see the <Hyperlink href={"/studies/insa"} internal>
+                INSA Lyon page
+              </Hyperlink>
               </p>
             </div>
           </div>
