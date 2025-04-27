@@ -23,7 +23,7 @@ export default function RootLayout({
         <main className="flex flex-col overflow-hidden flex-grow">
           {children}
         </main>
-        <footer className={`${raleway.className} flex flex-col items-center bg-neutral-900 text-white noise`} >
+        <footer className={`${raleway.className} flex flex-col items-center bg-neutral-950 text-white noise`} >
           <div className={"flex flex-col py-10 px-10 max-w-4xl w-full"}>
             <div className={"flex gap-2 items-center mb-8"}>
               <span className={`${robotoSlab.className} text-2xl text-left font-bold mr-2`}>Chris Wilson</span>

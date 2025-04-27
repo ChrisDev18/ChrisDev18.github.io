@@ -2,7 +2,7 @@ import {ChevronRightIcon} from "@radix-ui/react-icons";
 import Link from "next/link";
 import React from "react";
 
-export default function Hyperlink({href, className, children, internal=false}: {href: string, className?: string, children: React.ReactNode, internal?: boolean}) {
+export default function Hyperlink({href, className, children, chevron=true, internal=false}: {href: string, className?: string, chevron?: boolean, children: React.ReactNode, internal?: boolean}) {
   return (
       internal ?
       <Link
@@ -17,7 +17,7 @@ export default function Hyperlink({href, className, children, internal=false}: {
   dark:hover:before:bg-opacity-40 dark:focus-visible:before:bg-opacity-40
   hover:before:bottom-0 hover:before:h-full focus-visible:before:bottom-0 focus-visible:before:h-full focus-visible:outline-none
 ` + className }>
-        { children } <ChevronRightIcon />
+        { children } {chevron && <ChevronRightIcon />}
       </Link>
           : <a
               href={href}
@@ -31,7 +31,7 @@ export default function Hyperlink({href, className, children, internal=false}: {
   dark:hover:before:bg-opacity-40 dark:focus-visible:before:bg-opacity-40
   hover:before:bottom-0 hover:before:h-full focus-visible:before:bottom-0 focus-visible:before:h-full focus-visible:outline-none
 ` + className }>
-            { children } <ChevronRightIcon />
+            { children } {chevron && <ChevronRightIcon />}
           </a>
 
   );

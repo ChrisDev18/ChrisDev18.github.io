@@ -17,6 +17,8 @@ import uob_logo from "/public/uob_logo.png";
 import insa_lyon_logo from "/public/insa_lyon_logo.jpg";
 import Carousel from "@/app/components/Carousel";
 import Link from "next/link";
+import Hyperlink from "@/app/components/Hyperlink";
+import {ChevronUpIcon} from "@radix-ui/react-icons";
 
 
 export default function Home() {
@@ -106,8 +108,13 @@ export default function Home() {
   ];
 
   return (
-      <div className="flex-grow flex flex-col justify-center bg-neutral-100 text-gray-900 dark:bg-neutral-950 dark:text-white">
-        <section ref={ref} className="h-screen flex flex-col justify-center items-center gap-4 bg-white-50 text-gray-900 dark:text-white p-6 noise">
+      <div className="flex-grow flex flex-col justify-center bg-neutral-100 text-black dark:bg-neutral-950 dark:text-white">
+        <motion.section
+            initial={{marginBottom: 0}}
+            animate={{marginBottom: -60}}
+            transition={{delay: 2, duration: 1, ease: [0.39, 0.24, 0.3, 1]}}
+            ref={ref} className="h-screen flex flex-col justify-center items-center gap-4 bg-white-50 text-black dark:text-white p-6 noise"
+        >
           <motion.div style={{y: yBg}} className="backdrop-text">
             {[30, 50, 60, 30, 50, 60, 30, 50, 60, 30].map((speed, i) =>
                 <div key={i} className={`marquee ${i % 2 == 0 ? "left-1" : "right-1"}`}>
@@ -170,30 +177,56 @@ export default function Home() {
             />
           </motion.span>
 
-        </section>
+        </motion.section>
 
-        <section className={"flex flex-col bg-emerald-50 dark:bg-lime-950 items-center z-10"}>
-          <div className={"flex flex-col px-10 py-16 gap-8 max-w-4xl w-full"}>
-            <div className={"flex flex-col gap-6 items-center"}>
-              <h2 className={`${robotoSlab.className} mt-8 text-4xl text-center font-bold`}>
+        <section className={"overflow-clip relative flex flex-col bg-white dark:bg-black items-center z-10"}>
+          <motion.div
+              initial={{ width: "0%" }}
+              whileInView={{ width: "80%" }}
+              viewport={{ once: false }} // triggers when 20% of heading is visible
+              transition={{ duration: 1, ease: [0.39, 0.24, 0.3, 1] }}
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-[50%] h-[200px] bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-transparent to-90%  pointer-events-none"
+          />
+          <ChevronUpIcon height={30} width={30} className={"mt-4"} />
+          <div className={"flex flex-col px-10 py-20 gap-8 max-w-4xl w-full"}>
+            <div className={"gap-6 relative"}>
+
+              <motion.h2
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{duration: 0.5}}
+                  className={`${robotoSlab.className} mb-16 text-6xl text-left font-bold`}
+              >
                 My Studies
-              </h2>
+              </motion.h2>
 
-              <p className={`${raleway.className} text-center font-medium max-w-2xl`}>
-                I am a third year MSci Computer Science student at <i>The University of Birmingham</i>. I&#39;m
-                currently on exchange this year at <i>INSA Lyon</i> in France.
-              </p>
 
-              <p className={`${raleway.className} font-semibold text-center text-lime-800 dark:text-white opacity-70 max-w-2xl`}>
+              <motion.p
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{duration: 0.5}}
+                  className={`${raleway.className} text-xl font-medium max-w-2xl mb-16`}
+              >
+                I am a third year MSci Computer Science student
+                at <Hyperlink href={"https://www.birmingham.ac.uk"} internal chevron={false}>The University of Birmingham</Hyperlink>.
+                I&#39;m currently on exchange this year
+                at <Hyperlink href={"https://www.insa-lyon.fr"} internal chevron={false}>INSA Lyon</Hyperlink> in France.
+              </motion.p>
+
+              <motion.p
+                  initial={{opacity: 0}}
+                  whileInView={{opacity: 1}}
+                  transition={{delay: 0.5, duration: 0.5}}
+                  className={`${raleway.className} font-semibold text-center text-gray-500 dark:text-gray-400`}>
                 Click on either uni to learn more
-              </p>
+              </motion.p>
 
-              <div className={"flex justify-between border-2 border-black dark:border-emerald-100 border-dashed my-12 lg:my-16 mx-5"}>
+              <div className={"flex justify-between border-4 border-black dark:border-white border-dashed mt-16 mb-20 lg:mt-20 lg:mb-24 mx-5"}>
 
                 <motion.div
                     initial={"hidden"}
                     whileInView={"rest"}
-                    viewport={{ once: true }}
+                    // viewport={{ once: true }}
                     whileHover={"hover"}
                     whileTap={"pressed"}
                     variants={imgVariants}
@@ -223,7 +256,7 @@ export default function Home() {
                 <motion.div
                     initial={"hidden"}
                     whileInView={"rest"}
-                    viewport={{ once: true }}
+                    // viewport={{ once: true }}
                     whileHover={"hover"}
                     whileTap={"pressed"}
                     variants={imgVariants}
@@ -252,44 +285,79 @@ export default function Home() {
 
               </div>
 
-              <p className={`${raleway.className} text-center font-medium max-w-2xl mt-4`}>
+              <motion.p
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{duration: 0.5}}
+                  className={`${raleway.className} text-lg text-center font-medium`}>
                 For a long time I&#39;ve taken a special interest in front-end; I learnt React by myself and developed
-                my skills in several styling languages through independent projects. This website uses Tailwind CSS for
-                it&#39;s styling, <a href={"https://burnfm.com"}>Burn FM&#39;s website</a> uses pure CSS, and its admin
-                panel which is currently being developed uses Radix Themes.
-              </p>
+                my skills in several styling languages through independent projects.
+              </motion.p>
 
-              <h3 className={`${robotoSlab.className} mt-10 text-4xl text-center font-bold`}>
+              <motion.p
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{duration: 0.5}}
+                  className={`${raleway.className} text-lg text-center font-medium mt-8`}>
+                This website uses Tailwind CSS for
+                it&#39;s styling, <Hyperlink href={"https://burnfm.com"} chevron={false}>Burn FM&#39;s website</Hyperlink> uses pure CSS, and its admin
+                panel, currently being developed, uses Radix Themes.
+              </motion.p>
+
+              <motion.h3
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{duration: 0.5}}
+                  className={`${robotoSlab.className} mt-16 text-5xl text-center font-bold mb-8`}>
                 More about me
-              </h3>
+              </motion.h3>
 
-              <p className={`${raleway.className} text-center font-medium max-w-2xl`}>
+              <motion.p
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{duration: 0.5}}
+                  className={`${raleway.className} text-lg text-center font-medium`}>
                 I love language and linguistics. I am currently learning French and Italian which I get to use quite
                 a bit in my exchange over here in France, but also love learning little bits and pieces from all the
                 languages I hear from friends.
-              </p>
+              </motion.p>
 
               {/*<p className={`${raleway.className} text-center font-medium max-w-2xl`}>*/}
               {/*  Going out is great, but also have to say nothing quite beats a cosy night in with friends.*/}
               {/*  I love a good action/fantasy film like Hunger Games, Twilight or Harry Potter.*/}
               {/*</p>*/}
 
-
             </div>
           </div>
         </section>
 
-        <section className={"flex flex-col bg-gray-900 text-white items-center"}>
-          <div className={"relative z-10 flex flex-col px-10 py-16 gap-8 max-w-4xl w-full"}>
-            <h2 className={`${robotoSlab.className} text-5xl text-left font-bold`}>
-              My work
-            </h2>
+        <section className={"flex flex-col bg-gradient-to-b from-slate-950 via-slate-800 to-indigo-950 text-white items-center"}>
+          <div className={"relative z-10 px-10 py-20 max-w-4xl w-full"}>
+            <motion.h2
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.5}}
+                className={`${robotoSlab.className} mb-16 text-6xl text-left font-bold`}>
+              My Work
+            </motion.h2>
 
-            <p className={`${raleway.className} text-left font-medium max-w-2xl`}>
-              The two areas of Computer Science which particularly interest me are App Development and Machine Learning.
-              Between life and work at uni, I have worked on a number of projects - some independent and some as part of
-              uni.
-            </p>
+            <motion.p
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.5}}
+                className={`${raleway.className} text-xl text-left font-medium max-w-xl mb-4`}>
+              Two areas which particularly interest me
+              are <strong>App Development</strong> and <strong>Machine Learning</strong>.
+            </motion.p>
+
+            <motion.p
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.5}}
+                className={`${raleway.className} text-xl text-left font-medium max-w-xl mb-28`}>
+              Between life and work at uni, I have worked on a number of projects - some independent
+              and some as part of uni.
+            </motion.p>
 
             <Carousel title="Application Development" projects={[
               {
