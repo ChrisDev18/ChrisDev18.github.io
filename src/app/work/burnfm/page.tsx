@@ -17,11 +17,6 @@ export default function BurnfmPage() {
     pressed: { x: -20, rotate: -4, scale: 0.9 },
   }
 
-  const logoVariants = {
-    rest: { x: 0, y: 0, rotate: 0, scale: 1 },
-
-  }
-
   const insa_logoVariants = {
     rest: { y: 0, x: 0, rotate: 0, scale: 1 },
     hover: { y: 10, scale: 1.03 },

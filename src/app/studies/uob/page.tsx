@@ -4,9 +4,7 @@ import uob_campus from "/public/uob_campus.webp";
 import {raleway, robotoSlab} from "@/app/fonts";
 import Hero from "@/app/components/Hero";
 import CourseCards from "@/app/components/CourseCards";
-import Link from "next/link";
 import {y1_items, y2_items} from "@/app/studies/module_information";
-import {ChevronRightIcon} from "@radix-ui/react-icons";
 import Hyperlink from "@/app/components/Hyperlink";
 
 export default function UoBPage() {

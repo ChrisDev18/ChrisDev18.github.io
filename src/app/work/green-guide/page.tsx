@@ -8,25 +8,24 @@ import {Pencil2Icon, PersonIcon, SewingPinIcon, StarIcon} from "@radix-ui/react-
 
 import { useRef } from "react";
 import { motion, useMotionValue, useDragControls } from "framer-motion";
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 
-const Carousel = ({ children }) => {
-  const scrollRef = useRef(null);
+const Carousel = ({ children }: {children: React.ReactNode}) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const dragX = useMotionValue(0);
   const controls = useDragControls();
 
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.firstChild.offsetWidth + 16; // Card width + gap
-      scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
-    }
-  };
+  // const scroll = (direction: string) => {
+  //   if (scrollRef.current?.firstChild) {
+  //     const scrollAmount = scrollRef.current.firstChild.offsetWidth + 16; // Card width + gap
+  //     scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
+  //   }
+  // };
 
   return (
       <div className="relative w-full overflow-hidden">
-        <button onClick={() => scroll("left")} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-neutral-800 p-2 rounded-full shadow-md z-10">
-          <ChevronLeftIcon width={24} height={24} />
-        </button>
+        {/*<button onClick={() => scroll("left")} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-neutral-800 p-2 rounded-full shadow-md z-10">*/}
+        {/*  <ChevronLeftIcon width={24} height={24} />*/}
+        {/*</button>*/}
 
         <motion.div
             ref={scrollRef}
@@ -40,9 +39,9 @@ const Carousel = ({ children }) => {
           {children}
         </motion.div>
 
-        <button onClick={() => scroll("right")} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-neutral-800 p-2 rounded-full shadow-md z-10">
-          <ChevronRightIcon width={24} height={24} />
-        </button>
+        {/*<button onClick={() => scroll("right")} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-neutral-800 p-2 rounded-full shadow-md z-10">*/}
+        {/*  <ChevronRightIcon width={24} height={24} />*/}
+        {/*</button>*/}
       </div>
   );
 };

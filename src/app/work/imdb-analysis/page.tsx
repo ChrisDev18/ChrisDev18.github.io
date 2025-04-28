@@ -3,12 +3,6 @@
 import Hero from "@/app/components/Hero";
 import imdb_hero from "/public/imdb-hero.png";
 import {raleway} from "@/app/fonts";
-import {motion} from "motion/react";
-import Link from "next/link";
-import Image from "next/image";
-import burn_img1 from "/public/burnfm1.png";
-import burn_admin1 from "/public/burnfm/burnadmin1.png";
-import {ChevronRightIcon} from "@radix-ui/react-icons";
 
 export default function ImdbAnalysisPage() {
   const imgVariants = {
@@ -16,17 +10,6 @@ export default function ImdbAnalysisPage() {
     rest: {  opacity: 1, scale: 1 },
     hover: { y: -5, scale: 1.1 },
     pressed: { x: -20, rotate: -4, scale: 0.9 },
-  }
-
-  const logoVariants = {
-    rest: { x: 0, y: 0, rotate: 0, scale: 1 },
-
-  }
-
-  const insa_logoVariants = {
-    rest: { y: 0, x: 0, rotate: 0, scale: 1 },
-    hover: { y: 10, scale: 1.03 },
-    pressed: { y: -5, x: 15, rotate: 2, scale: 0.95 },
   }
 
   return (
