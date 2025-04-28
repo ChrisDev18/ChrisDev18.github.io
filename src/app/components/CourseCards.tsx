@@ -19,7 +19,7 @@ export default function CourseCards({items, className}: {items: CourseItem[], cl
   }
 
   return (
-      <div className={`grid grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] gap-4 ${className}`}>
+      <div className={`grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 ${className}`}>
         {items.map((item) => (
             <motion.button
                 transition={{duration: 0.5, ease: [0, 0.71, 0.2, 1.01]}}
@@ -45,7 +45,7 @@ export default function CourseCards({items, className}: {items: CourseItem[], cl
                 <motion.div
                     layoutId={`card-${selectedId}`}
                     onClick={(e) => e.stopPropagation()}
-                    className={"bg-neutral-950 m-10 p-5 text-left text-white shadow-md max-w-screen-sm flex flex-grow flex-col justify-between"}
+                    className={"bg-neutral-950 m-10 p-5 text-left text-white shadow-md max-w-(--breakpoint-sm) flex grow flex-col justify-between"}
                     transition={{duration: 0.5, ease: [0, 0.71, 0.2, 1.01]}}
                 >
                   <div>

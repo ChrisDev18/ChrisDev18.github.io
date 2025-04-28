@@ -8,7 +8,7 @@ import Hyperlink from "@/app/components/Hyperlink";
 export default function ExistPage() {
 
   return (
-      <div className={"flex flex-col flex-grow bg-neutral-100 text-neutral-900 dark:text-white"}>
+      <div className={"flex flex-col grow bg-neutral-100 text-neutral-900 dark:text-white"}>
         <header>
           <Hero title={"EXIST 2024 Challenge"} img={exist_hero}/>
         </header>

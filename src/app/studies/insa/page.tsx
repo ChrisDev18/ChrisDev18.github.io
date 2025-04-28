@@ -22,7 +22,7 @@ export default function InsaPage() {
   // const y5 = useTransform(scroll5.scrollYProgress, [0, 0.5, 1], [-100, -50, 0]);
 
   return (
-      <div className="flex-grow flex flex-col bg-neutral-100 text-gray-900 dark:bg-neutral-900 dark:text-white">
+      <div className="grow flex flex-col bg-neutral-100 text-gray-900 dark:bg-neutral-900 dark:text-white">
         <header className="relative">
           <Hero title={"INSA Lyon"} img={insa_campus} />
         </header>

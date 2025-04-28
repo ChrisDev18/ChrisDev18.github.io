@@ -49,7 +49,7 @@ const Carousel = ({ children }) => {
 
 export default function GreenGuidePage() {
   return (
-      <div className={"flex flex-col flex-grow bg-neutral-900 text-white"}>
+      <div className={"flex flex-col grow bg-neutral-900 text-white"}>
         <header className={"mb-12"}>
           <Hero title={"GreenGuide"} img={greenguide_hero}/>
         </header>
@@ -107,7 +107,7 @@ export default function GreenGuidePage() {
               ].map((feature, index) => (
                   <div key={index} className="flex flex-none flex-col items-center w-48 px-8 pt-8 border-2 snap-start h-52 justify-center bg-black">
                     {feature.icon}
-                    <div className="flex flex-grow items-center justify-center text-center h-full">
+                    <div className="flex grow items-center justify-center text-center h-full">
                       <h3 className={`${raleway.className} text-xl font-semibold`}>{feature.title}</h3>
                     </div>
                   </div>

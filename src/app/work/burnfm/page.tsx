@@ -32,7 +32,7 @@ export default function BurnfmPage() {
   const rotate = useTransform(time, [0, 10000], [0, 360], { clamp: false });
 
   return (
-      <div className={"flex flex-col flex-grow bg-neutral-100 text-white"}>
+      <div className={"flex flex-col grow bg-neutral-100 text-white"}>
         <header>
           <Hero title={"Burn FM"} img={burnfm_hero}/>
         </header>

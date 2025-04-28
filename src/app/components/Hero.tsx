@@ -34,7 +34,7 @@ export default function Hero({title, img}: { title: string, img: StaticImageData
                     transition={{duration: 0.5, ease: "easeOut", delay: 0.3}}
                     style={{y: yTitle}}>
           <Link href={"/"}
-                className={`${raleway.className} flex items-center justify-center gap-1 text-xl text-center font-semibold text-white py-2 px-4 rounded hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+                className={`${raleway.className} flex items-center justify-center gap-1 text-xl text-center font-semibold text-white py-2 px-4 rounded-sm hover:underline focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                 aria-label="Navigate to Home">
             <ChevronLeftIcon/>
             Home

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import IconButton from './IconButton';
-import Image, {getImageProps} from "next/image";
+import Image from "next/image";
 import {raleway} from "@/app/fonts";
 import {ChevronLeftIcon, ChevronRightIcon, PersonIcon} from "@radix-ui/react-icons";
 import {StaticImport} from "next/dist/shared/lib/get-img-props";
@@ -72,7 +72,7 @@ export default function Carousel({ title, projects }: CarouselProps) {
         {/* Active Project Card */}
         <div className="relative -z-10 py-8 lg:py-8 lg:-mx-4">
           <Link href={currentProject.link ?? ""}
-                className="block outline outline-2 outline-white/60 hover:outline-white focus:outline-white active:outline-white  outline-offset-8 w-full pl-4 pr-64 lg:pl-10 py-6 lg:py-10 bg-black bg-opacity-50 hover:bg-opacity-40 hover:outline-offset-0 active:bg-opacity-60 transition-[outline-offset,outline-color]">
+                className="block outline-2 outline-white/60 hover:outline-white focus:outline-white active:outline-white  outline-offset-8 w-full pl-4 pr-64 lg:pl-10 py-6 lg:py-10 bg-black bg-opacity-50 hover:bg-opacity-40 hover:outline-offset-0 active:bg-opacity-60 transition-[outline-offset,outline-color]">
 
             <h3 className={`${raleway.className} text-2xl text-left font-semibold mb-2`}>
               {currentProject.title}

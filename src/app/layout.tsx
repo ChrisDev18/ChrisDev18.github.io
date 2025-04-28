@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={`min-h-full flex flex-col`}>
         <NextTopLoader />
         {/*<Navbar />*/}
-        <main className="flex flex-col overflow-hidden flex-grow">
+        <main className="flex flex-col overflow-hidden grow">
           {children}
         </main>
         <footer className={`${raleway.className} flex flex-col items-center bg-neutral-950 text-white noise`} >
@@ -35,7 +35,8 @@ export default function RootLayout({
               </a>
             </div>
 
-            <p className="mb-2">Website personally made with React and Next.js, styled manually with Tailwind CSS.</p>
+            <p className="mb-2">Website personally made using React with Next.js</p>
+            <p className="mb-4">Styled with Tailwind CSS, animated with Motion.</p>
             <p>All rights reserved 2025</p>
           </div>
         </footer>

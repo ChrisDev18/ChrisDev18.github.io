@@ -108,11 +108,11 @@ export default function Home() {
   ];
 
   return (
-      <div className="flex-grow flex flex-col justify-center bg-neutral-100 text-black dark:bg-neutral-950 dark:text-white">
+      <div className="grow flex flex-col justify-center bg-neutral-100 text-black dark:bg-neutral-950 dark:text-white">
         <motion.section
             initial={{marginBottom: 0}}
             animate={{marginBottom: -60}}
-            transition={{delay: 2, duration: 1, ease: [0.39, 0.24, 0.3, 1]}}
+            transition={{delay: 0.5, duration: 1, ease: [0.39, 0.24, 0.3, 1]}}
             ref={ref} className="h-screen flex flex-col justify-center items-center gap-4 bg-white-50 text-black dark:text-white p-6 noise"
         >
           <motion.div style={{y: yBg}} className="backdrop-text">
@@ -181,13 +181,14 @@ export default function Home() {
 
         <section className={"overflow-clip relative flex flex-col bg-white dark:bg-black items-center z-10"}>
           <motion.div
-              initial={{ width: "0%" }}
-              whileInView={{ width: "80%" }}
-              viewport={{ once: false }} // triggers when 20% of heading is visible
-              transition={{ duration: 1, ease: [0.39, 0.24, 0.3, 1] }}
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-[50%] h-[200px] bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-transparent to-90%  pointer-events-none"
+              initial={{ y: -200 }} // starts invisible
+              whileInView={{ y: 0 }} // becomes visible when h2 is in view
+              viewport={{ amount: 0.2 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0 h-1/2 pointer-events-none border-t-2 border-t-teal-500 inset-shadow-[0_210px_150px_-200px] inset-shadow-teal-600"
           />
           <ChevronUpIcon height={30} width={30} className={"mt-4"} />
+
           <div className={"flex flex-col px-10 py-20 gap-8 max-w-4xl w-full"}>
             <div className={"gap-6 relative"}>
 
@@ -301,7 +302,7 @@ export default function Home() {
                   className={`${raleway.className} text-lg text-center font-medium mt-8`}>
                 This website uses Tailwind CSS for
                 it&#39;s styling, <Hyperlink href={"https://burnfm.com"} chevron={false}>Burn FM&#39;s website</Hyperlink> uses pure CSS, and its admin
-                panel, currently being developed, uses Radix Themes.
+                panel, currently being developed, uses <Hyperlink href={"https://www.radix-ui.com"} chevron={false}>Radix Themes</Hyperlink>.
               </motion.p>
 
               <motion.h3
@@ -331,7 +332,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={"flex flex-col bg-gradient-to-b from-slate-950 via-slate-800 to-indigo-950 text-white items-center"}>
+        <section className={"relative flex flex-col bg-linear-to-b from-slate-950 to-indigo-950 text-white items-center"}>
+          <motion.div
+              initial={{ y: -200 }} // starts invisible
+              whileInView={{ y: 0 }} // becomes visible when h2 is in view
+              viewport={{ amount: 0.2 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0 h-1/2 pointer-events-none border-t-2 border-t-indigo-500 inset-shadow-[0_210px_150px_-200px] inset-shadow-indigo-600"
+          />
+
           <div className={"relative z-10 px-10 py-20 max-w-4xl w-full"}>
             <motion.h2
                 initial={{opacity: 0, y: 20}}

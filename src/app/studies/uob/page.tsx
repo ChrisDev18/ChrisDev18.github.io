@@ -11,7 +11,7 @@ import Hyperlink from "@/app/components/Hyperlink";
 
 export default function UoBPage() {
   return (
-      <div className="flex-grow flex flex-col bg-neutral-100 text-gray-900 dark:bg-neutral-900 dark:text-white">
+      <div className="grow flex flex-col bg-neutral-100 text-gray-900 dark:bg-neutral-900 dark:text-white">
         <header className="relative">
           <Hero title={"University of Birmingham"} img={uob_campus}/>
         </header>
