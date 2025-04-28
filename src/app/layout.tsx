@@ -17,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={"h-full"}>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Chris" />
+      </head>
       <body className={`min-h-full flex flex-col`}>
         <NextTopLoader />
         {/*<Navbar />*/}
