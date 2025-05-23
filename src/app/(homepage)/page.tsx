@@ -6,12 +6,6 @@ import TypewriterText from "@/app/Effects/TypewriterText";
 import Image from "next/image";
 import uob_campus from "/public/uob_campus.webp";
 import insa_lyon_campus from "/public/insa_lyon_campus.jpg";
-import burn_bg from "/public/burnfm/burnfm-recoded-bg.png";
-import exist_bg from "/public/exist2024_bg.png";
-import burn from "/public/burnfm/burnfm1.png";
-import spotifyapp_bg from "/public/spotifyapp_bg.png";
-import gameif_bg from "/public/gameif_bg.png";
-import greenguide from "/public/greenguide.png";
 
 import uob_logo from "/public/uob_logo.png";
 import insa_lyon_logo from "/public/insa_lyon_logo.jpg";
@@ -19,6 +13,7 @@ import Carousel from "@/app/components/Carousel";
 import Link from "next/link";
 import Hyperlink from "@/app/components/Hyperlink";
 import {ChevronUpIcon} from "@radix-ui/react-icons";
+import {HomeCarouselCards} from "@/app/(homepage)/HomeCarouselCards";
 
 
 export default function Home() {
@@ -113,7 +108,7 @@ export default function Home() {
             initial={{marginBottom: 0}}
             animate={{marginBottom: -60}}
             transition={{delay: 0.5, duration: 1, ease: [0.39, 0.24, 0.3, 1]}}
-            ref={ref} className="h-screen flex flex-col justify-center items-center gap-4 bg-white-50 text-black dark:text-white p-6 noise"
+            ref={ref} className="relative h-screen flex flex-col justify-center items-center gap-4 bg-white-50 text-black dark:text-white p-6 noise"
         >
           <motion.div style={{y: yBg}} className="backdrop-text">
             {[30, 50, 60, 30, 50, 60, 30, 50, 60, 30].map((speed, i) =>
@@ -322,12 +317,6 @@ export default function Home() {
                 a bit in my exchange over here in France, but also love learning little bits and pieces from all the
                 languages I hear from friends.
               </motion.p>
-
-              {/*<p className={`${raleway.className} text-center font-medium max-w-2xl`}>*/}
-              {/*  Going out is great, but also have to say nothing quite beats a cosy night in with friends.*/}
-              {/*  I love a good action/fantasy film like Hunger Games, Twilight or Harry Potter.*/}
-              {/*</p>*/}
-
             </div>
           </div>
         </section>
@@ -363,63 +352,65 @@ export default function Home() {
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{duration: 0.5}}
-                className={`${raleway.className} text-xl text-left font-medium max-w-xl mb-28`}>
+                className={`${raleway.className} text-xl text-left font-medium max-w-xl mb-16`}>
               Between life and work at uni, I have worked on a number of projects - some independent
               and some as part of uni.
             </motion.p>
 
-            <Carousel title="Application Development" projects={[
-              {
-                title: "Burn FM",
-                description: "Recoding Burn FM's website and creating a simple website admin panel using React and Next.js",
-                members: 1,
-                bg_img: burn_bg,
-                img: {src: burn, landscape: false},
-                link: "/work/burnfm"
-              },
-              {
-                title: "TrackTracker - Spotify Listening Analyser",
-                description: "A full-stack web app that analyses your Spotify listening habits and those of your friends.",
-                members: 7,
-                bg_img: spotifyapp_bg
-              },
-              {
-                title: "Video Game Search Engine",
-                members: 6,
-                description: "...",
-                bg_img: gameif_bg
-              },
-              {
-                title: "GreenGuide",
-                description: "A Software Engineering project to design an ecologically-focused web app.",
-                members: 6,
-                bg_img: exist_bg,
-                img: {src: greenguide, landscape: false},
-                link: "/work/green-guide"
-              },
+            <Carousel cards={HomeCarouselCards} />
 
-            ]} />
+            {/*<Carousel title="Application Development" projects={[*/}
+            {/*  {*/}
+            {/*    title: "Burn FM",*/}
+            {/*    description: "Recoding Burn FM's website and creating a simple website admin panel using React and Next.js",*/}
+            {/*    members: 1,*/}
+            {/*    bg_img: burn_bg,*/}
+            {/*    img: {src: burn, landscape: false},*/}
+            {/*    link: "/work/burnfm"*/}
+            {/*  },*/}
+            {/*  {*/}
+            {/*    title: "TrackTracker - Spotify Listening Analyser",*/}
+            {/*    description: "A full-stack web app that analyses your Spotify listening habits and those of your friends.",*/}
+            {/*    members: 7,*/}
+            {/*    bg_img: spotifyapp_bg*/}
+            {/*  },*/}
+            {/*  {*/}
+            {/*    title: "Video Game Search Engine",*/}
+            {/*    members: 6,*/}
+            {/*    description: "...",*/}
+            {/*    bg_img: gameif_bg*/}
+            {/*  },*/}
+            {/*  {*/}
+            {/*    title: "GreenGuide",*/}
+            {/*    description: "A Software Engineering project to design an ecologically-focused web app.",*/}
+            {/*    members: 6,*/}
+            {/*    bg_img: exist_bg,*/}
+            {/*    img: {src: greenguide, landscape: false},*/}
+            {/*    link: "/work/green-guide"*/}
+            {/*  },*/}
 
-            <Carousel
-                title="Machine Learning and Artificial Intelligence"
-                projects={[
-                {
-                  title: 'EXIST 2024 Challenge',
-                  description:
-                  'Identifying sexism within tweets using Fine-Tuned XLM-RoBERTa and Gemini Zero-Shot Learning.',
-                  bg_img: exist_bg,
-                  members: 3,
-                  link: "/work/exist"
-                },
-                {
-                  title: 'IMDB Review Sentiment Analysis',
-                  description: 'Determining whether a review is negative or positive, trained on IMDB reviews for film and TV.',
-                  bg_img: gameif_bg,
-                  members: 4,
-                  link: "/work/imdb-analysis"
-                },
-                ]}
-            />
+            {/*]} />*/}
+
+            {/*<Carousel*/}
+            {/*    title="Machine Learning and Artificial Intelligence"*/}
+            {/*    projects={[*/}
+            {/*    {*/}
+            {/*      title: 'EXIST 2024 Challenge',*/}
+            {/*      description:*/}
+            {/*      'Identifying sexism within tweets using Fine-Tuned XLM-RoBERTa and Gemini Zero-Shot Learning.',*/}
+            {/*      bg_img: exist_bg,*/}
+            {/*      members: 3,*/}
+            {/*      link: "/work/exist"*/}
+            {/*    },*/}
+            {/*    {*/}
+            {/*      title: 'IMDB Review Sentiment Analysis',*/}
+            {/*      description: 'Determining whether a review is negative or positive, trained on IMDB reviews for film and TV.',*/}
+            {/*      bg_img: gameif_bg,*/}
+            {/*      members: 4,*/}
+            {/*      link: "/work/imdb-analysis"*/}
+            {/*    },*/}
+            {/*    ]}*/}
+            {/*/>*/}
           </div>
         </section>
       </div>

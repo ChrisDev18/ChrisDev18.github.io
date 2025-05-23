@@ -1,105 +1,180 @@
-import React, { useState } from 'react';
-import IconButton from './IconButton';
-import Image from "next/image";
-import {raleway} from "@/app/fonts";
-import {ChevronLeftIcon, ChevronRightIcon, PersonIcon} from "@radix-ui/react-icons";
-import {StaticImport} from "next/dist/shared/lib/get-img-props";
-import {AnimatePresence, motion} from 'motion/react';
-import Link from "next/link";
+import React, {useEffect, useState, ReactNode } from "react";
+import { motion, Spring, Tween, useMotionValue } from "framer-motion";
+import { AnimatePresence } from "motion/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
-export interface Project {
-  title: string;
-  description: string;
-  bg_img?: StaticImport | string; // Background image for the carousel
-  img?: {src: StaticImport | string, landscape: boolean}; // Image for the project (can be used inside the card)
-  link?: string; // Link to the project
-  members: number; // Number of members in the project
+const ONE_SECOND = 1000;
+const AUTO_DELAY = ONE_SECOND * 10;
+const DRAG_BUFFER = 20;
+
+const SPRING_OPTIONS: Spring = {
+  type: "spring",
+  mass: 2,
+  stiffness: 400,
+  damping: 50,
+};
+
+const TWEEN_OPTIONS: Tween = {
+  type: "tween",
+  duration: 0.5,
+  ease: [0.77, 0, 0.18, 1],
+};
+
+interface SwipeCarouselProps {
+  autoPlay?: boolean;
+  autoDelay?: number;
+  cards: { shadowColor: string, contents: ReactNode }[]
 }
 
-interface CarouselProps {
-  title: string; // Title of the carousel
-  projects: Project[]; // List of projects to display
-}
+export default function SwipeCarousel({ autoPlay = true, autoDelay = AUTO_DELAY, cards }: SwipeCarouselProps) {
+  const [index, setIndex] = useState(0);
+  const [transitionType, setTransitionType] = useState<Spring | Tween>(TWEEN_OPTIONS);
+  const dragX = useMotionValue(0);
 
-export default function Carousel({ title, projects }: CarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const numSlides = cards.length;
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+  useEffect(() => {
+    if (!autoPlay) return;
+    const intervalRef = setInterval(() => {
+      if (dragX.get() === 0) {
+        setTransitionType(TWEEN_OPTIONS);
+        setIndex((prev) => (prev === numSlides - 1 ? 0 : prev + 1));
+      }
+    }, autoDelay);
+    return () => clearInterval(intervalRef);
+  }, [autoPlay, autoDelay, numSlides, dragX, index]);
+
+  const onDragEnd = () => {
+    const x = dragX.get();
+    setTransitionType(SPRING_OPTIONS);
+    if (x <= -DRAG_BUFFER && index < numSlides - 1) {
+      setIndex((prev) => prev + 1);
+    } else if (x >= DRAG_BUFFER && index > 0) {
+      setIndex((prev) => prev - 1);
+    }
   };
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+  const handleDotClick = (index: number) => {
+    setTransitionType(TWEEN_OPTIONS);
+    setIndex(index);
   };
-
-  const currentProject = projects[currentIndex];
 
   return (
-      <div className="relative -z-10">
-        {/* Background Blur */}
-        {currentProject.bg_img &&
-          <AnimatePresence>
-            <motion.div
-              key={currentProject.title} // Key ensures animation on change
-              initial={{opacity: 0}}
-              whileInView={{opacity: 1}}
-              exit={{opacity: 0}}
-              transition={{duration: 0.5}}
-              style={{willChange: "filter"}}
-              className="absolute top-0 bottom-0 left-0 right-0 blur-3xl object-cover -z-10 opacity-80"
-            >
-              <Image src={currentProject.bg_img} alt={"Blurred ambient background"} className={"w-full h-full"} />
-            </motion.div>
-          </AnimatePresence>
-        }
+      <div className="relative py-8">
+        <motion.div
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            style={{ x: dragX }}
+            animate={{ translateX: `-${index * 100}%` }}
+            transition={transitionType}
+            onDragEnd={onDragEnd}
+            className="flex cursor-grab items-center active:cursor-grabbing"
+        >
+          <CarouselItems cards={cards} cardIndex={index} transitionType={transitionType} />
+        </motion.div>
 
-
-        {/* Carousel Header */}
-        <div className="flex justify-between mt-10 items-center gap-8">
-          <h3 className={`${raleway.className} text-left lg:text-xl font-semibold`}>
-            {title}
-          </h3>
-          <div className="flex gap-2">
-            <IconButton onClick={handlePrev}>
-              <ChevronLeftIcon/>
-            </IconButton>
-            <IconButton onClick={handleNext}>
-              <ChevronRightIcon />
-            </IconButton>
-          </div>
-        </div>
-
-        {/* Active Project Card */}
-        <div className="relative -z-10 py-8 lg:py-8 lg:-mx-4">
-          <Link href={currentProject.link ?? ""}
-                className="block outline-2 outline-white/60 hover:outline-white focus:outline-white active:outline-white  outline-offset-8 w-full pl-4 pr-64 lg:pl-10 py-6 lg:py-10 bg-black bg-opacity-50 hover:bg-opacity-40 hover:outline-offset-0 active:bg-opacity-60 transition-[outline-offset,outline-color]">
-
-            <h3 className={`${raleway.className} text-2xl text-left font-semibold mb-2`}>
-              {currentProject.title}
-            </h3>
-            <p className={`${raleway.className} text-left font-medium mb-6`}>
-              {currentProject.description}
-            </p>
-
-            <span className={`${raleway.className} flex gap-2 w-min text-nowrap items-center border font-medium py-1 px-3 text-sm rounded-full mb-6`}>
-              {currentProject.members === 1 ? <>
-                <PersonIcon/>Solo Project
-              </> : <>
-                Group Project - {currentProject.members} people
-              </>}
-            </span>
-
-            <p className={`${raleway.className} text-left font-medium opacity-50`}>Read more</p>
-            {currentProject.img &&
-              <Image src={currentProject.img.src}
-                     alt={currentProject.title}
-                     width={400} height={400}
-                     className={`absolute bottom-0 right-5 drop-shadow-xl 
-                     ${currentProject.img.landscape ? 'h-auto w-1/3 -right-2' : ' h-3/4 w-auto'}`}
-              />
-            }
-          </Link>
-        </div>
+        <Dots imgIndex={index} total={numSlides} onDotClick={handleDotClick} />
       </div>
   );
-}
+};
+
+const CarouselItems = ({
+                         cardIndex,
+                         transitionType,
+                         cards,
+                       }: {
+  cardIndex: number;
+  transitionType: Spring | Tween;
+  cards: { shadowColor: string, contents: ReactNode }[];
+}) => (
+      <>
+        {cards.map((card, idx) => {
+          return (
+              <motion.div
+                  key={idx}
+                  style={{
+                    transition: "outline-offset 100ms, outline-color 100ms, box-shadow 1000ms, background 1000ms",
+                    boxShadow: cardIndex === idx ? `0px 4px 64px 0px ${card.shadowColor}` : undefined,
+                    background: "black",
+                  }}
+                  // disabled={cardIndex !== idx}
+                  animate={{scale: cardIndex === idx ? 1 : 0.75}}
+                  transition={transitionType}
+                  className={`w-full h-72 max-sm:h-96 shrink-0 outline outline-white/50 text-left object-cover
+                    enabled:hover:outline-offset-4 enabled:hover:outline-white enabled:hover:outline-2`}
+              >
+                <AnimatePresence>
+                  {cardIndex === idx &&
+                      card.contents
+                  }
+                </AnimatePresence>
+              </motion.div>
+          )
+        })}
+      </>
+);
+
+const Dots = ({
+                imgIndex,
+                total,
+                onDotClick,
+              }: {
+  imgIndex: number;
+  total: number;
+  onDotClick: (index: number) => void;
+}) => {
+  const goBack = () => {
+    if (imgIndex > 0) {
+      onDotClick(imgIndex - 1);
+    }
+  };
+
+  const goForward = () => {
+    if (imgIndex < total - 1) {
+      onDotClick(imgIndex + 1);
+    }
+  };
+
+  return (
+      <div className="mt-8 flex w-full justify-center items-center gap-6 z-10">
+        <button
+            onClick={goBack}
+            className="p-1 rounded-full border border-white text-white flex items-center justify-center
+             enabled:hover:bg-white enabled:hover:text-black
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-white
+             disabled:border-white/30 disabled:text-white/30"
+            aria-label="Previous"
+            disabled={imgIndex == 0}
+        >
+          <ChevronLeftIcon size={20} className="mr-[2px]" />
+        </button>
+
+        <div className="flex gap-2">
+          {Array.from({ length: total }).map((_, idx) => (
+              <button
+                  key={idx}
+                  onClick={() => onDotClick(idx)}
+                  className={`h-3 w-3 rounded-full transition-[colors,scale] ${
+                      idx === imgIndex
+                          ? "bg-neutral-50"
+                          : "bg-transparent border scale-75 hover:scale-100 hover:bg-neutral-50"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+              />
+          ))}
+        </div>
+
+        <button
+            onClick={goForward}
+            className="p-1 rounded-full border border-white text-white flex items-center justify-center
+             enabled:hover:bg-white enabled:hover:text-black
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-white
+             disabled:border-white/30 disabled:text-white/30"
+            aria-label="Next"
+            disabled={imgIndex == total - 1}
+        >
+          <ChevronRightIcon size={20} className="ml-[2px]"/>
+        </button>
+      </div>
+  );
+};
