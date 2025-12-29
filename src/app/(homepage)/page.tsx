@@ -9,7 +9,7 @@ import insa_lyon_campus from "/public/insa_lyon_campus.jpg";
 
 import uob_logo from "/public/uob_logo.png";
 import insa_lyon_logo from "/public/insa_lyon_logo.jpg";
-import Carousel from "@/app/components/Carousel";
+import Carousel from "@/app/components/HeroCarousel";
 import Link from "next/link";
 import Hyperlink from "@/app/components/Hyperlink";
 import {ChevronUpIcon} from "@radix-ui/react-icons";

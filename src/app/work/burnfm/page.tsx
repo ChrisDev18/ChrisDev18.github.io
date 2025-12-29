@@ -29,7 +29,7 @@ export default function BurnfmPage() {
   return (
       <div className={"flex flex-col grow bg-neutral-100 text-white"}>
         <header>
-          <Hero title={"Burn FM"} img={burnfm_hero}/>
+          <Hero title={"Burn FM"} subsection={"My Work"} img={burnfm_hero}/>
         </header>
 
         <section className={"flex flex-col items-center z-20 bg-neutral-900"}>

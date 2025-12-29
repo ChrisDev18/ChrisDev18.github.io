@@ -18,6 +18,17 @@
   }
 }
 
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
 /*@layer base {*/
 /*    !*.font-outline-0 {*!*/
 /*    !*    text-shadow: none*!*/

@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import AudioAnimation from "@/app/assets/AudioWaves.json";
 import SpotifyAnimation from "@/app/assets/SpotifyAudio.json";
 import DermiaAnimation from "@/app/assets/DermiaAnimation.json";
+import TweetingAnimation from "@/app/assets/Tweeting.json";
 import { raleway } from "@/app/fonts";
 import React from "react";
 import {motion} from "motion/react";
@@ -48,6 +49,44 @@ export const HomeCarouselCards = [
     )
   },
   {
+    shadowColor: "#bf00ff",
+    contents: (
+        <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            key={0}
+            className="relative z-0 h-full flex flex-col p-8 justify-between items-start overflow-clip">
+          <div>
+            <h4 className={`${raleway.className} font-medium text-3xl mt-2 mb-4`}>EPSRC Internship Android App</h4>
+            <p className={`${raleway.className} font-medium text-lg leading-snug max-w-md`}>
+              Learning modern Android Development and building an Android app with Jetpack Compose and Firebase integration.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            <GlowPill color={"#d9b6ff"}>
+              <UserIcon size={20} /> <span>Solo Project</span>
+            </GlowPill>
+            <GlowPill color={"#25e679"}>
+              <span>Jetpack Compose</span>
+            </GlowPill>
+            <GlowPill color={"#ffae00"}>
+              <span>Firebase</span>
+            </GlowPill>
+          </div>
+
+          {/*<p className={`${raleway.className} font-medium text-white/75`}>Click to read more</p>*/}
+
+          <Lottie
+              animationData={AudioAnimation}
+              className="-z-10 absolute -top-16 -bottom-16 right-0 my-auto"
+              loop={true}
+          />
+        </motion.div>
+    )
+  },
+  {
     shadowColor: "#ff6d79",
     contents: (
         <motion.div
@@ -73,7 +112,7 @@ export const HomeCarouselCards = [
               <span>React</span>
             </GlowPill>
             <GlowPill color={"#e1e1e1"}>
-              <span>Express.js</span>
+              <span>Flask</span>
             </GlowPill>
             <GlowPill color={"#ff8c76"}>
               <span>PyTorch</span>
@@ -126,6 +165,47 @@ export const HomeCarouselCards = [
               animationData={SpotifyAnimation}
               className="rotate-45 -z-10 absolute -top-8 -bottom-8 -right-96 my-auto max-sm:-rotate-45"
               loop={true}
+          />
+        </motion.div>
+    )
+  },
+  {
+    shadowColor: "#1DA1F2",
+    contents: (
+        <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            key={1}
+            className="relative z-0 h-full flex flex-col p-8 justify-between items-start overflow-clip">
+          <div>
+            <h4 className={`${raleway.className} font-medium text-3xl mt-2 mb-4`}>
+              EXIST 2024 - Sexism detection
+            </h4>
+            <p className={`${raleway.className} font-medium text-lg leading-snug max-w-md`}>
+              Fine-tuning an XLM-RoBERTa model to classify tweets in English and Spanish.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            <GlowPill color={"#7ac5ed"}>
+              <UsersIcon size={20} /> <span>3 people</span>
+            </GlowPill>
+            <GlowPill color={"#FFD21E"}>
+              <span>Huggingface</span>
+            </GlowPill>
+            <GlowPill color={"#ffa51e"}>
+              <span>Colab</span>
+            </GlowPill>
+          </div>
+
+          {/*<p className={`${raleway.className} font-medium text-white/75`}>Click to read more</p>*/}
+
+          <Lottie
+              animationData={TweetingAnimation}
+              className=" -z-10 absolute top-0 bottom-0 -right-16 my-auto max-sm:-rotate-45"
+              loop={true}
+
           />
         </motion.div>
     )

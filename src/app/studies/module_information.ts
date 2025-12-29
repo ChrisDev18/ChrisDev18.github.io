@@ -135,7 +135,7 @@ This module focused on authentication and cryptography as well as attacks, vulne
   },
 ];
 
-export const if3 = [
+export const if3s1: CourseItem[] = [
   {
     id: "algebra",
     title: "Linear Algebra and Image Synthesis",
@@ -187,7 +187,7 @@ This course reintroduced Object Oriented Programming using C++.
   },
 ];
 
-export const if4 = [
+export const if4s1: CourseItem[] = [
   {
     id: "network",
     title: "Network Programming",
@@ -219,7 +219,7 @@ For half of the module we made a search engine web app in groups of 6.
   },
 ];
 
-export const if5 = [
+export const if5s1: CourseItem[] = [
   {
     id: "textmining",
     title: "Text Mining",
@@ -240,7 +240,7 @@ The module consisted of three projects:
 `
   },
   {
-    id: "ml",
+    id: "ml_data",
     title: "Machine Learning and Data Analytics",
     content: `
 This course taught the theory behind different machine learning techniques and analysing large datasets.
@@ -269,4 +269,63 @@ app which allows users to discover what monuments are nearby, and look up other 
 - Leveraging a French governmental API to access data about historical monuments.
 `
   },
+];
+
+export const if3s2: CourseItem[] = [
+  {
+    id: "web data",
+    title: "Data Management for Web",
+    content: ``
+  },
+  {
+    id: "uml",
+    title: "Software Engineering",
+    content: ``
+  },
+  {
+    id: "probabilities",
+    title: "Probabilities",
+    content: ``
+  },
+];
+
+export const if4s2 = [
+  {
+    id: "ml",
+    title: "Machine Learning",
+    content: ``
+  },
+  {
+    id: "ethics",
+    title: "Environmental and Societal Challenges",
+    content: ``
+  },
+  {
+    id: "compiler",
+    title: "Compiler Project",
+    content: ``
+  },
+  {
+    id: "smart",
+    title: "INSA SMART Project",
+    content: ``
+  },
+];
+
+export const y4_items: CourseItem[] = [
+  {
+    id: "plpdi",
+    title: "Programming Languages and Compilers",
+    content: ``
+  },
+  {
+    id: "neural",
+    title: "Neural Computation",
+    content: ``
+  },
+  {
+    id: "vision",
+    title: "Computer Vision",
+    content: ``
+  }
 ];

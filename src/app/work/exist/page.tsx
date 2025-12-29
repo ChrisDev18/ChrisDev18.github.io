@@ -10,7 +10,7 @@ export default function ExistPage() {
   return (
       <div className={"flex flex-col grow bg-neutral-100 text-neutral-900 dark:text-white"}>
         <header>
-          <Hero title={"EXIST 2024 Challenge"} img={exist_hero}/>
+          <Hero title={"EXIST 2024 Challenge"} subsection={"My Work"} img={exist_hero}/>
         </header>
 
         <section className={"flex flex-col items-center z-20 bg-neutral-100 dark:bg-neutral-900"}>

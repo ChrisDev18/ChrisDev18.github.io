@@ -50,7 +50,7 @@ export default function GreenGuidePage() {
   return (
       <div className={"flex flex-col grow bg-neutral-900 text-white"}>
         <header className={"mb-12"}>
-          <Hero title={"GreenGuide"} img={greenguide_hero}/>
+          <Hero title={"GreenGuide"} subsection={"My Work"} img={greenguide_hero}/>
         </header>
 
         <section className={"flex flex-col items-center"}>

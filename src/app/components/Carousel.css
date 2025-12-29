@@ -1,0 +1,63 @@
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 16px;
+
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    /*width: 300px; !* fixed or responsive *!*/
+    scroll-snap-align: start;
+}
+
+/* Buttons */
+.carousel-wrapper > button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.carousel-wrapper > button:first-of-type {
+    left: -40px;
+}
+
+.carousel-wrapper > button:last-of-type {
+    right: -40px;
+}
+
+/* Dots */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none;
+    cursor: pointer;
+}
+
+.dots button.active {
+    background: #000;
+}

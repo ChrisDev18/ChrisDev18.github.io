@@ -15,7 +15,7 @@ export default function ImdbAnalysisPage() {
   return (
       <div className={"flex flex-col grow bg-neutral-100 text-neutral-900 dark:text-white"}>
         <header>
-          <Hero title={"IMDB Review Sentiment Analysis"} img={imdb_hero}/>
+          <Hero title={"IMDB Review Sentiment Analysis"} subsection={"My Work"} img={imdb_hero}/>
         </header>
 
         <section className={"flex flex-col items-center z-20 bg-neutral-100 dark:bg-neutral-900"}>
