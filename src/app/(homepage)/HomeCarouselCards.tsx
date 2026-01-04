@@ -5,7 +5,7 @@ import AudioAnimation from "@/app/assets/AudioWaves.json";
 import SpotifyAnimation from "@/app/assets/SpotifyAudio.json";
 import DermiaAnimation from "@/app/assets/DermiaAnimation.json";
 import TweetingAnimation from "@/app/assets/Tweeting.json";
-import { raleway } from "@/app/fonts";
+import SearchLocateAnimation from "@/app/assets/Search_Locate.json";
 import React from "react";
 import {motion} from "motion/react";
 
@@ -20,8 +20,8 @@ export const HomeCarouselCards = [
             key={0}
             className="relative z-0 h-full flex flex-col p-8 justify-between items-start overflow-clip">
           <div>
-            <h4 className={`${raleway.className} font-medium text-3xl mt-2 mb-4`}>Burn FM</h4>
-            <p className={`${raleway.className} font-medium text-lg leading-snug max-w-md`}>
+            <h4 className={`font-sans font-medium text-3xl mt-2 mb-4`}>Burn FM</h4>
+            <p className={`font-sans font-medium text-lg leading-snug max-w-md`}>
               Recoding Burn FM’s website and creating a simple website admin panel using React and Next.js
             </p>
           </div>
@@ -38,7 +38,7 @@ export const HomeCarouselCards = [
             </GlowPill>
           </div>
 
-          {/*<p className={`${raleway.className} font-medium text-white/75`}>Click to read more</p>*/}
+          {/*<p className={`font-sans font-medium text-white/75`}>Click to read more</p>*/}
 
           <Lottie
               animationData={AudioAnimation}
@@ -49,7 +49,7 @@ export const HomeCarouselCards = [
     )
   },
   {
-    shadowColor: "#bf00ff",
+    shadowColor: "#58a65d",
     contents: (
         <motion.div
             initial={{opacity: 0}}
@@ -58,8 +58,8 @@ export const HomeCarouselCards = [
             key={0}
             className="relative z-0 h-full flex flex-col p-8 justify-between items-start overflow-clip">
           <div>
-            <h4 className={`${raleway.className} font-medium text-3xl mt-2 mb-4`}>EPSRC Internship Android App</h4>
-            <p className={`${raleway.className} font-medium text-lg leading-snug max-w-md`}>
+            <h4 className={`font-sans font-medium text-3xl mt-2 mb-4`}>EPSRC Internship Android App</h4>
+            <p className={`font-sans font-medium text-lg leading-snug max-w-md`}>
               Learning modern Android Development and building an Android app with Jetpack Compose and Firebase integration.
             </p>
           </div>
@@ -76,11 +76,11 @@ export const HomeCarouselCards = [
             </GlowPill>
           </div>
 
-          {/*<p className={`${raleway.className} font-medium text-white/75`}>Click to read more</p>*/}
+          {/*<p className={`font-sans font-medium text-white/75`}>Click to read more</p>*/}
 
           <Lottie
-              animationData={AudioAnimation}
-              className="-z-10 absolute -top-16 -bottom-16 right-0 my-auto"
+              animationData={SearchLocateAnimation}
+              className="-z-10 absolute -top-10 -bottom-8 -right-8 my-auto max-sm:top-auto max-sm:h-84 max-sm:-right-16"
               loop={true}
           />
         </motion.div>
@@ -96,10 +96,10 @@ export const HomeCarouselCards = [
             key={0}
             className="relative z-0 h-full flex flex-col p-8 justify-between items-start overflow-clip">
           <div>
-            <h4 className={`${raleway.className} font-medium text-3xl mt-2 mb-4`}>
+            <h4 className={`font-sans font-medium text-3xl mt-2 mb-4`}>
               Derm&#39;IA
             </h4>
-            <p className={`${raleway.className} font-medium text-lg leading-snug max-w-md`}>
+            <p className={`font-sans font-medium text-lg leading-snug max-w-md`}>
               A web app that analyses uploaded images of moles to assess potential severity and risk.
             </p>
           </div>
@@ -119,7 +119,7 @@ export const HomeCarouselCards = [
             </GlowPill>
           </div>
 
-          {/*<p className={`${raleway.className} font-medium text-white/75`}>Click to read more</p>*/}
+          {/*<p className={`font-sans font-medium text-white/75`}>Click to read more</p>*/}
 
           <Lottie
               animationData={DermiaAnimation}
@@ -139,10 +139,10 @@ export const HomeCarouselCards = [
             key={1}
             className="relative z-0 h-full flex flex-col p-8 justify-between items-start overflow-clip">
           <div>
-            <h4 className={`${raleway.className} font-medium text-3xl mt-2 mb-4`}>
+            <h4 className={`font-sans font-medium text-3xl mt-2 mb-4`}>
               TrackTracker
             </h4>
-            <p className={`${raleway.className} font-medium text-lg leading-snug max-w-md`}>
+            <p className={`font-sans font-medium text-lg leading-snug max-w-md`}>
               A full-stack web app that analyses your Spotify listening habits and those of your friends.
             </p>
           </div>
@@ -159,7 +159,7 @@ export const HomeCarouselCards = [
             </GlowPill>
           </div>
 
-          {/*<p className={`${raleway.className} font-medium text-white/75`}>Click to read more</p>*/}
+          {/*<p className={`font-sans font-medium text-white/75`}>Click to read more</p>*/}
 
           <Lottie
               animationData={SpotifyAnimation}
@@ -179,10 +179,10 @@ export const HomeCarouselCards = [
             key={1}
             className="relative z-0 h-full flex flex-col p-8 justify-between items-start overflow-clip">
           <div>
-            <h4 className={`${raleway.className} font-medium text-3xl mt-2 mb-4`}>
+            <h4 className={`font-sans font-medium text-3xl mt-2 mb-4`}>
               EXIST 2024 - Sexism detection
             </h4>
-            <p className={`${raleway.className} font-medium text-lg leading-snug max-w-md`}>
+            <p className={`font-sans font-medium text-lg leading-snug max-w-md`}>
               Fine-tuning an XLM-RoBERTa model to classify tweets in English and Spanish.
             </p>
           </div>
@@ -199,7 +199,7 @@ export const HomeCarouselCards = [
             </GlowPill>
           </div>
 
-          {/*<p className={`${raleway.className} font-medium text-white/75`}>Click to read more</p>*/}
+          {/*<p className={`font-sans font-medium text-white/75`}>Click to read more</p>*/}
 
           <Lottie
               animationData={TweetingAnimation}

@@ -1,7 +1,7 @@
 "use client"
 
 import Hero from "@/app/components/Hero";
-import imdb_hero from "/public/imdb-hero.png";
+import imdb_hero from "@/app/assets/imdb-hero.png";
 import {raleway} from "@/app/fonts";
 
 export default function ImdbAnalysisPage() {
@@ -63,21 +63,21 @@ export default function ImdbAnalysisPage() {
           <div className={"flex flex-col px-10 py-16 gap-8 max-w-3xl w-full"}>
             <div className={"flex flex-col gap-6"}>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 This was the first assigned project during my 5th year Text Mining module at INSA Lyon. The goal was to
                 build a sentiment analysis model for IMDB movie reviews with little-to-no experience of NLP techniques.
                 The model should be able to which can categorise reviews as either positive or negative. I worked in a
                 group of 4.
               </p>
 
-              <h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>Our approach</h2>
+              <h2 className={`font-sans text-3xl font-semibold max-w-2xl mt-8`}>Our approach</h2>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 We decided to use a simple logistic regression model as a baseline. We then experimented with more
                 complex models such as LSTM, Decision Tree Classifier, BERT pretrained model and SpaCy Textcat.
               </p>
 
-              <ul className={`${raleway.className} font-medium max-w-2xl`}>
+              <ul className={`font-sans font-medium max-w-2xl`}>
                 <li>Logistic Regression</li>
                 <li>Decision Tree Classifier | Simple</li>
                 <li>Long-Short-Term-Memory (LSTM) Neural Network</li>
@@ -86,11 +86,11 @@ export default function ImdbAnalysisPage() {
               </ul>
 
 
-              {/*<h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>*/}
+              {/*<h2 className={`font-sans text-3xl font-semibold max-w-2xl mt-8`}>*/}
               {/*  SpaCy&#39;s TextCategorizer model*/}
               {/*</h2>*/}
 
-              {/*<p className={`${raleway.className} font-medium max-w-2xl`}>*/}
+              {/*<p className={`font-sans font-medium max-w-2xl`}>*/}
               {/*  My approach was with SpaCy’s TextCategorizer model. I had a little experience with using this framework*/}
               {/*  and knew this was a categorisation problem.*/}
               {/*</p>*/}

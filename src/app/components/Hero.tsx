@@ -1,12 +1,11 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { raleway, robotoSlab } from "../fonts";
-import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import {useRef} from "react";
-import ProgressiveBlur from "@/app/components/ProgressiveBlur";
+import Hyperlink from "@/app/components/Hyperlink";
+import TypewriterText from "@/app/Effects/TypewriterText";
 
 export default function Hero({title, subtitle, subsection, img}: { title: string, subtitle?: string, subsection: string, img: StaticImageData }) {
   const ref = useRef(null);
@@ -16,19 +15,16 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
   });
 
   // Adjust parallax intensity here:
-  const y = useTransform(scrollYProgress, [0, 1], [0, 500]);
-
-  // Adjust parallax intensity here:
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-      <motion.div ref={ref} className="relative flex flex-col items-start justify-between h-screen min-h-fit p-4 md:p-8 2xl:p-16 bg-neutral-900">
+      <motion.div ref={ref} className="relative flex flex-col items-start justify-between h-[calc(100vh-60px)] min-h-fit p-4 sm:p-8 2xl:p-16 bg-neutral-900">
         <motion.div
             initial={{y: 25, scale: 1.2, opacity: 0}}
             animate={{y: 0, scale: 1, opacity: 1}}
             transition={{duration: 1, ease: [0, 0.71, 0.2, 1.01],}}
             style={{y}}
-            className="absolute inset-0 w-full h-[110vh] z-0"
+            className="absolute inset-0 w-full h-[100vh] z-0"
         >
           <Image
               src={img}
@@ -39,7 +35,7 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
         </motion.div>
 
         <motion.div
-            className="absolute inset-0 z-20 p-4 md:p-8 2xl:p-16 pointer-events-none"
+            className="absolute inset-0 z-20 p-4 sm:p-8 2xl:p-16 pointer-events-none"
             variants={{
               hidden: {},
               show: {
@@ -113,16 +109,15 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
             transition={{duration: 0.5, ease: "easeOut", delay: 1}}
         >
           <motion.p
-              className={`${raleway.className} text-black`}
+              className={`font-sans text-black`}
               initial={{opacity: 0, x: -10}}
               animate={{opacity: 1, x: 0}}
               transition={{duration: 0.5, ease: "easeOut", delay: 1}}
           >
-            <Link href={"/"}
-                  className={"font-semibold rounded-sm underline hover:underline focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"}
+            <Hyperlink href={"/"} chevron={false} className="dark:before:bg-black/40"
                   aria-label="Navigate to Home">
               Chris Wilson
-            </Link> / {subsection}
+            </Hyperlink> / {subsection}
           </motion.p>
 
           {/* Bottom line */}
@@ -135,8 +130,7 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
         </motion.div>
 
         <div className="relative z-10 flex flex-col items-start w-full p-8">
-
-          <motion.h1 className={`${robotoSlab.className} z-10 mb-4 text-4xl md:text-6xl lg:text-6xl 2xl:text-6xl text-left font-bold text-white tracking-wider`}
+          <motion.h1 className={`font-serif z-10 mb-4 text-4xl md:text-6xl lg:text-6xl 2xl:text-6xl text-left font-bold text-white tracking-wider`}
                      initial={{y: -25, opacity: 0}}
                      animate={{y: 0, opacity: 1}}
                      transition={{duration: 0.5, ease: "easeOut", delay: 0.3}}>
@@ -144,7 +138,7 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
           </motion.h1>
 
           { subtitle &&
-            <motion.p className={`${raleway.className} z-10 ml-1 text-xl md:text-2xl lg:text-3xl 2xl:text-4xl text-left text-white tracking-wider`}
+            <motion.p className={`font-sans z-10 ml-1 text-xl md:text-2xl lg:text-3xl 2xl:text-4xl text-left text-white tracking-wider`}
                       initial={{y: -25, opacity: 0}}
                       animate={{y: 0, opacity: 1}}
                       transition={{duration: 0.5, ease: "easeOut", delay: 0.3}}>
@@ -152,7 +146,7 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
             </motion.p>
           }
 
-          <ProgressiveBlur className="h-[300px]" gradientColor="rgb(0,0,0,0.5)"/>
+          {/*<ProgressiveBlur className="h-[300px]" gradientColor="rgb(0,0,0,0.5)"/>*/}
         </div>
 
       </motion.div>

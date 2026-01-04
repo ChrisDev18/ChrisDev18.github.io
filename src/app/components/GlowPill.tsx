@@ -32,7 +32,7 @@ export const GlowPill = ({
             boxShadow: `0 0 16px ${shadowColor}`,
             backgroundColor: backgroundColor,
           }}
-          className={`${raleway.className} inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium text-lg ${className}`}
+          className={`font-sans inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium text-lg ${className}`}
       >
       {children}
     </span>

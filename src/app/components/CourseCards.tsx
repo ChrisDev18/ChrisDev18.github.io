@@ -28,7 +28,7 @@ export default function CourseCards({items, className}: {items: CourseItem[], cl
                 onClick={() => handleClick(item)}
                 className={"text-left bg-neutral-950 p-5 text-white cursor-pointer outline outline-2 outline-transparent hover:underline focus-visible:underline hover:outline-black focus-visible:outline-black dark:hover:outline-white dark:focus-visible:outline-white hover:outline-offset-[6px] focus-visible:outline-offset-[6px] transition-[outline,outline-offset]"}
             >
-              <motion.h2 className={`${raleway.className} text-xl font-medium`}>{item.title}</motion.h2>
+              <motion.h2 className={`font-sans text-xl font-medium`}>{item.title}</motion.h2>
             </motion.button>
         ))}
 
@@ -49,12 +49,12 @@ export default function CourseCards({items, className}: {items: CourseItem[], cl
                     transition={{duration: 0.5, ease: [0, 0.71, 0.2, 1.01]}}
                 >
                   <div>
-                    <h2 className={`${raleway.className} text-3xl mt-2 mb-6 font-semibold`}>{selectedItem.title}</h2>
+                    <h2 className={`font-sans text-3xl mt-2 mb-6 font-semibold`}>{selectedItem.title}</h2>
                     <Markdown components={{
-                      h1: ({ node, ...props }) => <h3 className={`${raleway.className} text-xl font-semibold`} {...props} />,
-                      p: ({ node, ...props }) => <p className={`${raleway.className} font-medium my-2`} {...props} />,
-                      ul: ({ node, ...props }) => <ul className={`${raleway.className} font-medium list-disc pl-6 space-y-2 mt-4 mb-4`} {...props} />,
-                      ol: ({ node, ...props }) => <ol className={`${raleway.className} font-medium list-decimal pl-6 space-y-2 mt-4 mb-4`} {...props} />,
+                      h1: ({ node, ...props }) => <h3 className={`font-sans text-xl font-semibold`} {...props} />,
+                      p: ({ node, ...props }) => <p className={`font-sans font-medium my-2`} {...props} />,
+                      ul: ({ node, ...props }) => <ul className={`font-sans font-medium list-disc pl-6 space-y-2 mt-4 mb-4`} {...props} />,
+                      ol: ({ node, ...props }) => <ol className={`font-sans font-medium list-decimal pl-6 space-y-2 mt-4 mb-4`} {...props} />,
                       li: ({ node, ...props }) => <li {...props} />,
                     }}>
                       {selectedItem.content}

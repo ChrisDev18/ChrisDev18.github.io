@@ -1,7 +1,7 @@
 "use client"
 
 import Hero from "@/app/components/Hero";
-import greenguide_hero from "/public/greenguide.png";
+import greenguide_hero from "@/app/assets/greenguide.png";
 import {raleway} from "@/app/fonts";
 import React from "react";
 import {Pencil2Icon, PersonIcon, SewingPinIcon, StarIcon} from "@radix-ui/react-icons";
@@ -55,19 +55,19 @@ export default function GreenGuidePage() {
 
         <section className={"flex flex-col items-center"}>
           <div className={"flex flex-col px-10 gap-8 max-w-3xl w-full"}>
-            <p className={`${raleway.className} font-medium max-w-2xl`}>
+            <p className={`font-sans font-medium max-w-2xl`}>
               GreenGuide was a software engineering project during my second year of Computer Science. It focused on
               the following stages of Software Engineering:
             </p>
 
-            <ol className={`${raleway.className} font-medium max-w-2xl list-decimal pl-6 space-y-2`}>
+            <ol className={`font-sans font-medium max-w-2xl list-decimal pl-6 space-y-2`}>
               <li>Requirements Engineering</li>
               <li>Software Specification and Design</li>
               <li>Human Interface Design</li>
               <li>Specification of Tests</li>
             </ol>
 
-            <p className={`${raleway.className} font-medium max-w-2xl`}>
+            <p className={`font-sans font-medium max-w-2xl`}>
               <em>
                 Note: we never actually developed the actual application, this project was rather focused solely on
                 the conception stages.
@@ -80,18 +80,18 @@ export default function GreenGuidePage() {
         <section className={"flex flex-col items-center"}>
           <div className={"flex flex-col px-10 py-16 gap-8 max-w-3xl w-full"}>
             <hr/>
-            <h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>
+            <h2 className={`font-sans text-3xl font-semibold max-w-2xl mt-8`}>
               1. Requirements Engineering
             </h2>
 
 
-            <p className={`${raleway.className} font-medium max-w-2xl`}>
+            <p className={`font-sans font-medium max-w-2xl`}>
               This stage consisted of us deciding on an initial app idea and determining the software features. We also
               outlined our project&#39;s scope, as well as constraints and assumptions to be made when doing the conception
               of the software
             </p>
 
-            <h2 className={`${raleway.className} text-2xl font-semibold max-w-2xl mt-4`}>
+            <h2 className={`font-sans text-2xl font-semibold max-w-2xl mt-4`}>
               Software Features
             </h2>
 
@@ -107,7 +107,7 @@ export default function GreenGuidePage() {
                   <div key={index} className="flex flex-none flex-col items-center w-48 px-8 pt-8 border-2 snap-start h-52 justify-center bg-black">
                     {feature.icon}
                     <div className="flex grow items-center justify-center text-center h-full">
-                      <h3 className={`${raleway.className} text-xl font-semibold`}>{feature.title}</h3>
+                      <h3 className={`font-sans text-xl font-semibold`}>{feature.title}</h3>
                     </div>
                   </div>
               ))}

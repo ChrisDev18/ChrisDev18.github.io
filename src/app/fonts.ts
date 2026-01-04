@@ -1,4 +1,4 @@
-import {Raleway, Roboto_Slab} from "next/font/google";
+import {Merriweather, Raleway} from "next/font/google";
 
-export const robotoSlab = Roboto_Slab({ subsets: ["latin"], variable: "--heading-font" });
-export const raleway = Raleway({ subsets: ["latin"], variable: "--body-font" });
+export const merriweather = Merriweather({ subsets: ["latin"], variable: "--font-serif" });
+export const raleway = Raleway({ subsets: ["latin"], variable: "--font-sans" });

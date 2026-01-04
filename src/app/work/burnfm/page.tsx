@@ -1,13 +1,13 @@
 "use client"
 
 import Hero from "@/app/components/Hero";
-import burnfm_hero from "/public/burnfm/burnfm-recoded-hero.png";
+import burnfm_hero from "@/app/assets/burnfm/burnfm-recoded-hero.png";
 import {raleway} from "@/app/fonts";
 import {motion, useTime, useTransform} from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-import burn_img1 from "/public/burnfm/burnfm2.png";
-import burn_admin1 from "/public/burnfm/burnadmin1.png";
+import burn_img1 from "@/app/assets/burnfm/burnfm2.png";
+import burn_admin1 from "@/app/assets/burnfm/burnadmin1.png";
 
 export default function BurnfmPage() {
   const imgVariants = {
@@ -76,38 +76,38 @@ export default function BurnfmPage() {
           <div className={"flex flex-col px-10 py-16 gap-8 max-w-3xl w-full"}>
             <div className={"flex flex-col gap-6"}>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 Burn FM is the University of Birmingham&#39;s student radio station. I joined Burn FM in my first year
                 at university and have helped host 2 shows.
               </p>
 
 
-              <h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>
+              <h2 className={`font-sans text-3xl font-semibold max-w-2xl mt-8`}>
                 Initially rebuilding burnfm.com
               </h2>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 At the start of my second year, I took interest in the website they currently were using.
                 It was an old WordPress site, which seemingly hadn&#39;t been updated in several years,
                 however much of the now-broken content was still online.
               </p>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 I decided to take on the challenge of rebuilding the website from scratch.
                 I wanted to create a modern and responsive website with the end goal of it being completely integrated
                 with our other technologies, as well as easy to maintain and update.
               </p>
 
-              <h3 className={`${raleway.className} text-2xl font-semibold max-w-2xl`}>
+              <h3 className={`font-sans text-2xl font-semibold max-w-2xl`}>
                 Technologies
               </h3>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 We initially used Broadcast Radio to manage our shows for the first two years that I was at Burn FM.
                 It provided the system where we&#39;d define our schedules and the radio shows currently running.
               </p>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 With a strong background in React, I chose it as the UI library. Next.js was my framework of choice for
                 its robust, scalable environment and advanced front-end features.
               </p>
@@ -137,43 +137,43 @@ export default function BurnfmPage() {
               </span>
               </div>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 We use StackCP to manage the web server, so a static export of the Next.js app worked well.
               </p>
 
-              <h2 className={`${raleway.className} text-3xl font-semibold max-w-2xl mt-8`}>
+              <h2 className={`font-sans text-3xl font-semibold max-w-2xl mt-8`}>
                 Migrating from Broadcast Radio to a custom CMS - Burn Admin Panel
               </h2>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 Once the website was fully integrated with Broadcast Radio&#39;s system, me and Bradley (the other
                 person working on tech at Burn FM) looked for further ways to integrate the systems together.
               </p>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 As we were paying for UK2&#39;s Shared Hosting, we already had access to the services
                 required to replicate the functionality we required from Broadcast Radio. By implementing it ourselves,
                 we would have more control over features, and unify more of the technologies we used.
               </p>
 
-              <h3 className={`${raleway.className} text-2xl font-semibold max-w-2xl`}>
+              <h3 className={`font-sans text-2xl font-semibold max-w-2xl`}>
                 Architecture
               </h3>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 This new system would replicate the features that we used from Broadcast Radio, allowing for:
               </p>
 
-              <ul className={`${raleway.className} font-medium list-disc pl-6 space-y-2`}>
+              <ul className={`font-sans font-medium list-disc pl-6 space-y-2`}>
                 <li>Radio Shows</li>
                 <li>Weekly Schedules consisting of Radio Shows</li>
               </ul>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 As well as adding new features for our specific use-case:
               </p>
 
-              <ul className={`${raleway.className} font-medium list-disc pl-6 space-y-2`}>
+              <ul className={`font-sans font-medium list-disc pl-6 space-y-2`}>
                 <li>A description and photo attached to each Radio Show</li>
                 <li>Podcasts</li>
                 <li>Posting messages on the website</li>
@@ -181,26 +181,26 @@ export default function BurnfmPage() {
                 <li>A default show to fill in gaps within the schedule</li>
               </ul>
 
-              <h3 className={`${raleway.className} text-2xl font-semibold max-w-2xl`}>
+              <h3 className={`font-sans text-2xl font-semibold max-w-2xl`}>
                 New features to burnfm.com
               </h3>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 This new architecture allows enhanced control and organisation of shows, allowing for the following
                 new features:
               </p>
 
-              <ul className={`${raleway.className} font-medium list-disc pl-6 space-y-2`}>
+              <ul className={`font-sans font-medium list-disc pl-6 space-y-2`}>
                 <li>A catalogue of all shows past and present</li>
                 <li>Shows being able to occur multiple times in one schedule</li>
                 <li>Shows remembering all previous show-times</li>
               </ul>
 
-              <p className={`${raleway.className} font-medium max-w-2xl`}>
+              <p className={`font-sans font-medium max-w-2xl`}>
                 With the following planned development:
               </p>
 
-              <ul className={`${raleway.className} font-medium list-disc pl-6 space-y-2`}>
+              <ul className={`font-sans font-medium list-disc pl-6 space-y-2`}>
                 <li>Managing and displaying podcasts on the website</li>
                 <li>Managing and displaying posts on the website</li>
               </ul>

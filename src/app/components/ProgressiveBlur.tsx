@@ -43,7 +43,7 @@ export default function ProgressiveBlur({
         {layers.map((layer, i) => (
             <motion.div
                 key={i}
-                className="absolute inset-0"
+                className="will-change-scroll absolute inset-0"
                 style={{
                   // apply dynamic backdrop-blur using inline style (works even when Tailwind can't see dynamic classes)
                   // backdropFilter: `blur(${layer.blurPx}px)`,
