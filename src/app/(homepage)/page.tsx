@@ -459,7 +459,7 @@ export default function Home() {
 
                 <div className="p-6 space-y-2 border-l-2 border-l-gray-700">
                   <h3 className="text-xl mb-2 text-white">Burn FM Recoded</h3>
-                  <p>At the beginning of 2024, I offered to rebuild my university’s radio station website: burnfm.com. Since then, I've continued to develop and improve the site, adding many new features.</p>
+                  <p>At the beginning of 2024, I offered to rebuild my university&apos;s radio station website: burnfm.com. Since then, I&apos;ve continued to develop and improve the site, adding many new features.</p>
                   <p>The website now offers a built-in player, on-demand playback, the weekly schedule, as well as the catalogue of all past shows that Burn has broadcast in recent years.</p>
                 </div>
               </div>
