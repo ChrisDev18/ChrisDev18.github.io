@@ -22,7 +22,7 @@ export function Carousel({ items }: { items: ReactNode[] }) {
   const itemRefs = useRef<HTMLDivElement[]>([])
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const AUTO_ADVANCE_MS = 8000;
+  const AUTO_ADVANCE_MS = 10000;
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0); // 0 -> 1
   const progressRef = useRef(0);

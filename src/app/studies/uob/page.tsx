@@ -5,11 +5,11 @@ import Hero from "@/app/components/Hero";
 import Hyperlink from "@/app/components/Hyperlink";
 import CourseCard from "@/app/components/CourseCard";
 import {
-  LucideAppWindow, LucideBox, LucideBrainCircuit,
+  LucideAppWindow, LucideBot, LucideBox, LucideBrainCircuit,
   LucideChartSpline, LucideChevronUp,
   LucideClipboardPenLine, LucideFileKey2,
   LucideGitGraph, LucideLandPlot, LucideMonitorCog,
-  LucideMusic4, LucideSquareFunction,
+  LucideMusic4, LucideShieldCheck, LucideSquareFunction,
   LucideVariable, LucideView, LucideWaypoints
 } from "lucide-react";
 import {Carousel} from "@/app/components/Carousel";
@@ -40,7 +40,7 @@ export default function UoBPage() {
 
               <span className={"flex flex-wrap justify-between items-center mt-8"}>
                 <h3 className={`font-sans text-xl font-semibold max-w-2xl`}>
-                  1st Year
+                  4th Year
                 </h3>
 
                 <span className={`font-sans font-medium dark:text-white opacity-70 max-w-2xl`}>
@@ -50,91 +50,43 @@ export default function UoBPage() {
 
               <Carousel items={[
                 <CourseCard
-                    key={1}
-                    title={"Data Structures and Algorithms"}
-                    description={""}
-                    Icon={LucideGitGraph}
-                />,
-                <CourseCard
                     key={2}
-                    title={"Object Oriented Programming"}
-                    description={""}
-                    Icon={LucideBox}
+                    title={"Neural Computation"}
+                    description={"Perceptrons & MLPs, Neural Networks, CNNs, Auto-Encoders, Generative Models, Language Models."}
+                    Icon={LucideBrainCircuit}
                 />,
                 <CourseCard
                     key={3}
-                    title={"Mathematical and Logical Foundations"}
-                    description={""}
-                    Icon={LucideVariable}
+                    title={"Computer Vision and Imaging"}
+                    description={"Spatial Filtering, Edge and Shape Detection, Image Classification and Segmentation, Object Detection, Optical Flow and Motion Analysis"}
+                    Icon={LucideView}
                 />,
                 <CourseCard
                     key={4}
-                    title={"Artificial Intelligence 1"}
-                    description={""}
-                    Icon={LucideChartSpline}
+                    title={"Natural Language Processing"}
+                    description={"N-Gram Modelling, Naïve Bayes Classification, Attention, Transformer Language Models, LLM design"}
+                    Icon={LucideBot}
                 />,
                 <CourseCard
-                    key={5}
-                    title={"Theories of Computation"}
-                    description={""}
-                    Icon={LucideWaypoints}
-                />,
-                <CourseCard
-                    key={6}
-                    title={"Full-Stack Development"}
-                    description={""}
-                    Icon={LucideAppWindow}
-                />
-              ]} />
-
-              <span className={"flex flex-wrap justify-between items-center mt-8"}>
-                <h3 className={`font-sans text-xl font-semibold max-w-2xl`}>
-                  2nd Year
-                </h3>
-
-                <span className={`font-sans font-medium dark:text-white opacity-70 max-w-2xl`}>
-                  Scroll through to learn more
-                </span>
-              </span>
-
-              <Carousel items={[
-                <CourseCard
-                    key={2}
-                    title={"Software Engineering & Professional Practice"}
-                    description={""}
-                    Icon={LucideClipboardPenLine}
-                />,
-                <CourseCard
-                    key={5}
-                    title={"Web Application Team Project"}
-                    description={""}
-                    Icon={LucideMusic4}
-                />,
-                <CourseCard
-                    key={3}
-                    title={"Functional Programming"}
-                    description={""}
+                    key={1}
+                    title={"Prog. Languages and Compilers"}
+                    description={"Lambda Calculus, Operational Semantics, Type inference & checking. Compilation of Procedural Programs"}
                     Icon={LucideSquareFunction}
                 />,
                 <CourseCard
-                    key={4}
-                    title={"Artificial Intelligence 2"}
-                    description={""}
-                    Icon={LucideLandPlot}
-                />,
-                <CourseCard
-                    key={1}
-                    title={"Operating Systems"}
-                    description={""}
+                    key={5}
+                    title={"Algorithms and Complexity"}
+                    description={"Algorithm Paradigms (Greedy, Dynamic, Divide and Conquer), Complexity Analysis: (P vs NP, Karp Reductions), Boolean Circuits"}
                     Icon={LucideMonitorCog}
                 />,
                 <CourseCard
                     key={6}
-                    title={"Security & Networks"}
-                    description={""}
-                    Icon={LucideFileKey2}
+                    title={"Dependable and Distributed Systems"}
+                    description={"Dependability, Fault Tolerance, (Byzantine) Consensus, Physical and Logical Clocks, Reliable Broadcast"}
+                    Icon={LucideShieldCheck}
                 />
               ]} />
+            </div>
 
               <h3 className={`mb-4 font-sans text-xl font-semibold max-w-2xl mt-8`}>
                 3rd Year - Exchange Year
@@ -146,9 +98,9 @@ export default function UoBPage() {
               </Hyperlink>
               </p>
 
-              <span className={"flex flex-wrap justify-between items-center mt-8"}>
+            <span className={"flex flex-wrap justify-between items-center mt-8"}>
                 <h3 className={`font-sans text-xl font-semibold max-w-2xl`}>
-                  4th Year
+                  2nd Year
                 </h3>
 
                 <span className={`font-sans font-medium dark:text-white opacity-70 max-w-2xl`}>
@@ -156,27 +108,93 @@ export default function UoBPage() {
                 </span>
               </span>
 
-              <Carousel items={[
-                <CourseCard
-                    key={1}
-                    title={"Prog. Languages and Compilers"}
-                    description={"Lambda Calculus, Operational Semantics, Type inference & checking. Compilation of Procedural Programs"}
-                    Icon={LucideSquareFunction}
-                />,
-                <CourseCard
-                    key={2}
-                    title={"Neural Computation"}
-                    description={"Perceptrons & MLPs, Neural Networks, CNNs, Auto-Encoders, Generative Models, Language Models."}
-                    Icon={LucideBrainCircuit}
-                />,
-                <CourseCard
-                    key={3}
-                    title={"Computer Vision"}
-                    description={""}
-                    Icon={LucideView}
-                />
-              ]} />
-            </div>
+            <Carousel items={[
+              <CourseCard
+                  key={2}
+                  title={"Software Engineering & Professional Practice"}
+                  description={"Team project designing an ecological app. Requirements Engineering, Design, Development and Testing, UML modelling"}
+                  Icon={LucideClipboardPenLine}
+              />,
+              <CourseCard
+                  key={5}
+                  title={"Web Application Team Project"}
+                  description={"Team Project developing and deploying a Spotify Listening Analysis web app. Springboot, Angular, GitLab"}
+                  Icon={LucideMusic4}
+              />,
+              <CourseCard
+                  key={3}
+                  title={"Functional Programming"}
+                  description={"Introduction to Haskell. Types, Polymorphism, Type Classes, List Comprehensions, Recursion, Higher-Order Functions, Custom Data Types"}
+                  Icon={LucideSquareFunction}
+              />,
+              <CourseCard
+                  key={4}
+                  title={"Artificial Intelligence 2"}
+                  description={""}
+                  Icon={LucideLandPlot}
+              />,
+              <CourseCard
+                  key={1}
+                  title={"Operating Systems"}
+                  description={""}
+                  Icon={LucideMonitorCog}
+              />,
+              <CourseCard
+                  key={6}
+                  title={"Security & Networks"}
+                  description={""}
+                  Icon={LucideFileKey2}
+              />
+            ]} />
+
+            <span className={"flex flex-wrap justify-between items-center mt-8"}>
+                <h3 className={`font-sans text-xl font-semibold max-w-2xl`}>
+                  1st Year
+                </h3>
+
+                <span className={`font-sans font-medium dark:text-white opacity-70 max-w-2xl`}>
+                  Scroll through to learn more
+                </span>
+              </span>
+
+            <Carousel items={[
+              <CourseCard
+                  key={1}
+                  title={"Data Structures and Algorithms"}
+                  description={""}
+                  Icon={LucideGitGraph}
+              />,
+              <CourseCard
+                  key={2}
+                  title={"Object Oriented Programming"}
+                  description={""}
+                  Icon={LucideBox}
+              />,
+              <CourseCard
+                  key={3}
+                  title={"Mathematical and Logical Foundations"}
+                  description={""}
+                  Icon={LucideVariable}
+              />,
+              <CourseCard
+                  key={4}
+                  title={"Artificial Intelligence 1"}
+                  description={""}
+                  Icon={LucideChartSpline}
+              />,
+              <CourseCard
+                  key={5}
+                  title={"Theories of Computation"}
+                  description={""}
+                  Icon={LucideWaypoints}
+              />,
+              <CourseCard
+                  key={6}
+                  title={"Full-Stack Development"}
+                  description={""}
+                  Icon={LucideAppWindow}
+              />
+            ]} />
           </div>
         </section>
 

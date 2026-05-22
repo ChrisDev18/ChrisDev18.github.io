@@ -3,6 +3,7 @@ import "./globals.css";
 import {raleway, merriweather} from "@/app/fonts";
 import {GitHubLogoIcon, LinkedInLogoIcon} from "@radix-ui/react-icons";
 import NextTopLoader from "nextjs-toploader";
+import Navbar from "@/app/Navbar/Navbar";
 
 
 export const metadata: Metadata = {
@@ -20,8 +21,9 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-title" content="Chris" />
       </head>
-      <body className={`${raleway.variable} ${merriweather.variable} min-h-full flex flex-col`}>
-        <NextTopLoader />
+      <body className={`${raleway.variable} ${merriweather.variable} min-h-full flex flex-col top-0`}>
+      <Navbar/>
+      <NextTopLoader color="white" height={1} showSpinner={false}/>
         {/*<Navbar />*/}
         <main className="font-sans flex flex-col overflow-hidden grow">
           {children}

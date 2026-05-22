@@ -23,12 +23,9 @@ import SpringBootIcon from "@/app/assets/tool_icons/SpringBootIcon";
 import AngularIcon from "@/app/assets/tool_icons/AngularIcon";
 import jetpack_compose_icon from "@/app/assets/tool_icons/jetpack_compose_icon.png";
 
-import Carousel from "@/app/components/HeroCarousel";
 import Link from "next/link";
 import Hyperlink from "@/app/components/Hyperlink";
 import {ChevronUpIcon} from "@radix-ui/react-icons";
-import {HomeCarouselCards} from "@/app/(homepage)/HomeCarouselCards";
-
 
 
 export default function Home() {
@@ -317,69 +314,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/*<section className={"relative flex flex-col bg-linear-to-b from-slate-950 from-[30%] to-indigo-950 to-[100%] text-white items-center"}>*/}
-        {/*  <motion.div*/}
-        {/*      initial={{ y: -300 }} // starts invisible*/}
-        {/*      whileInView={{ y: 0 }} // becomes visible when h2 is in view*/}
-        {/*      viewport={{ amount: 0.2 }}*/}
-        {/*      transition={{ duration: 1 }}*/}
-        {/*      className="absolute inset-0 h-1/2 pointer-events-none border-t-2 border-t-indigo-500 inset-shadow-[0_300px_300px_-300px] inset-shadow-indigo-600"*/}
-        {/*  />*/}
-
-        {/*  <div className={"relative z-10 px-10 py-20 max-w-4xl w-full"}>*/}
-        {/*    <motion.h2*/}
-        {/*        initial={{opacity: 0, y: 20}}*/}
-        {/*        whileInView={{opacity: 1, y: 0}}*/}
-        {/*        transition={{duration: 0.5}}*/}
-        {/*        viewport={{ once: true }}*/}
-        {/*        className={`font-serif mb-16 text-6xl text-left font-bold`}>*/}
-        {/*      My Work*/}
-        {/*    </motion.h2>*/}
-
-        {/*    <motion.p*/}
-        {/*        initial={{opacity: 0, y: 20}}*/}
-        {/*        whileInView={{opacity: 1, y: 0}}*/}
-        {/*        transition={{duration: 0.5}}*/}
-        {/*        viewport={{ once: true }}*/}
-        {/*        className={`font-sans text-xl text-left font-medium max-w-xl mb-4`}>*/}
-        {/*      Two areas which particularly interest me*/}
-        {/*      are <strong>App Development</strong> and <strong>Machine Learning</strong>.*/}
-        {/*    </motion.p>*/}
-
-        {/*    <motion.p*/}
-        {/*        initial={{opacity: 0, y: 20}}*/}
-        {/*        whileInView={{opacity: 1, y: 0}}*/}
-        {/*        transition={{duration: 0.5}}*/}
-        {/*        viewport={{ once: true }}*/}
-        {/*        className={`font-sans text-xl text-left font-medium max-w-xl mb-16`}>*/}
-        {/*      Between life and work at uni, I have worked on a number of projects. Below are some of my highlighted projects:*/}
-        {/*    </motion.p>*/}
-
-        {/*    <Carousel cards={HomeCarouselCards} />*/}
-
-        {/*    <motion.p*/}
-        {/*        initial={{opacity: 0, y: 20}}*/}
-        {/*        whileInView={{opacity: 1, y: 0}}*/}
-        {/*        viewport={{ once: true }}*/}
-        {/*        transition={{duration: 0.5}}*/}
-        {/*        className={`font-sans text-lg text-center font-medium mt-8`}>*/}
-        {/*      For a long time I&#39;ve taken a special interest in front-end; I learnt <Hyperlink chevron={false} href={"https://react.dev/"}>React</Hyperlink> by myself and developed*/}
-        {/*      my skills in several styling languages through independent projects.*/}
-        {/*    </motion.p>*/}
-
-        {/*    <motion.p*/}
-        {/*        initial={{opacity: 0, y: 20}}*/}
-        {/*        whileInView={{opacity: 1, y: 0}}*/}
-        {/*        viewport={{ once: true }}*/}
-        {/*        transition={{duration: 0.5}}*/}
-        {/*        className={`font-sans text-lg text-center font-medium mt-8`}>*/}
-        {/*      This website uses <Hyperlink href={"https://tailwindcss.com/"} chevron={false}>Tailwind CSS</Hyperlink> for*/}
-        {/*      it&#39;s styling, <Hyperlink href={"https://burnfm.com"} chevron={false}>my recoding of Burn FM</Hyperlink> now uses a blend of Tailwind and pure CSS, and its admin*/}
-        {/*      panel (in development) uses <Hyperlink href={"https://www.radix-ui.com"} chevron={false}>Radix Themes</Hyperlink>.*/}
-        {/*    </motion.p>*/}
-        {/*  </div>*/}
-        {/*</section>*/}
-
         <section className={"overflow-clip relative self-center flex flex-col h-full w-full items-center bg-black"}>
           <motion.div
               initial={{ y: -300 }} // starts invisible
@@ -388,7 +322,7 @@ export default function Home() {
               transition={{ duration: 1 }}
               className="absolute inset-0 h-1/2 pointer-events-none border-t-2 border-t-white/80 inset-shadow-[0_300px_300px_-300px] inset-shadow-white/90"
           />
-          <div className="max-w-6xl p-8 z-10">
+          <div className="max-w-6xl p-8 z-10" id="projects">
             <h2 className="text-5xl mt-8 mb-16 leading-tight text-white">My <strong>Software <br/> Development</strong> Projects</h2>
             <div className="max-md:space-y-6 min-md:grid h-full w-full gap-6 grid-cols-15 grid-rows-15 max-lg:grid-rows-12 text-gray-300 font-medium">
 
@@ -398,7 +332,7 @@ export default function Home() {
                 <div className="p-6 space-y-2 min-md:border-l-2 max-md:border-t-2 border-gray-700">
                   <h3 className="text-xl mb-2 text-white">Personal Website <span className="text-sm">(You are here)</span></h3>
                   <p>This website is written in TypeScript using Next.js and acts as both a means to highlight my work, and a platform to explore web design and modern animation & styling tools.</p>
-                  <p>All components are custom-built and styled by me.</p>
+                  <p>The majority of the components were built and styled by me.</p>
                 </div>
               </div>
 

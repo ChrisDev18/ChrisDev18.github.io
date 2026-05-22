@@ -1,14 +1,14 @@
-import {ChevronRightIcon} from "@radix-ui/react-icons";
 import Link from "next/link";
 import React from "react";
 import {LucideChevronRight} from "lucide-react";
 import {twMerge} from "tailwind-merge";
 
-export default function Hyperlink({href, className, children, chevron=true, internal=false}: {href: string, className?: string, chevron?: boolean, children: React.ReactNode, internal?: boolean}) {
+export default function Hyperlink({href, className, children, chevron=true, internal=false, scroll=true}: {href: string, className?: string, chevron?: boolean, children: React.ReactNode, internal?: boolean, scroll?: boolean}) {
   return (
       internal ?
       <Link
           href={href}
+          scroll={scroll}
           className={twMerge(`
   group relative inline-flex items-center font-bold no-underline underline-offset-2 
   before:absolute before:left-0 before:bottom-0 before:w-full before:h-[2px] 

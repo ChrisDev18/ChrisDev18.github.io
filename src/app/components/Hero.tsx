@@ -1,11 +1,8 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "motion/react";
-import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import {useRef} from "react";
-import Hyperlink from "@/app/components/Hyperlink";
-import TypewriterText from "@/app/Effects/TypewriterText";
 
 export default function Hero({title, subtitle, subsection, img}: { title: string, subtitle?: string, subsection: string, img: StaticImageData }) {
   const ref = useRef(null);
@@ -18,7 +15,7 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-      <motion.div ref={ref} className="relative flex flex-col items-start justify-between h-[calc(100vh-60px)] min-h-fit p-4 sm:p-8 2xl:p-16 bg-neutral-900">
+      <motion.div ref={ref} className="relative flex flex-col items-center justify-end h-[calc(100vh-60px)] min-h-fit p-8 sm:p-16 2xl:p-32 bg-neutral-900">
         <motion.div
             initial={{y: 25, scale: 1.2, opacity: 0}}
             animate={{y: 0, scale: 1, opacity: 1}}
@@ -49,104 +46,38 @@ export default function Hero({title, subtitle, subsection, img}: { title: string
             animate="show"
         >
 
-          <div className="relative inset-0 w-full h-full z-0">
-            {/* Bottom line */}
-            <motion.div
-                variants={{
-                  hidden: { scaleX: 0 },
-                  show: {
-                    scaleX: 1,
-                    transition: { duration: 0.3, ease: "easeInOut" },
-                  },
-                }}
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-white origin-left"
-            />
-
-            {/* Right line */}
-            <motion.div
-                variants={{
-                  hidden: { scaleY: 0 },
-                  show: {
-                    scaleY: 1,
-                    transition: { duration: 0.3, ease: "easeInOut" },
-                  },
-                }}
-                className="absolute top-0 bottom-0 right-0 w-[2px] bg-white origin-bottom"
-            />
-
-            {/* Top line */}
-            <motion.div
-                variants={{
-                  hidden: { scaleX: 0 },
-                  show: {
-                    scaleX: 1,
-                    transition: { duration: 0.3, ease: "easeInOut" },
-                  },
-                }}
-                className="absolute top-0 left-0 right-0 h-[2px] bg-white origin-right"
-            />
-
-            {/* Left line */}
-            <motion.div
-                variants={{
-                  hidden: { scaleY: 0 },
-                  show: {
-                    scaleY: 1,
-                    transition: { duration: 0.3, ease: "easeInOut" },
-                  },
-                }}
-                className="absolute top-0 bottom-0 left-0 w-[2px] bg-white origin-top"
-            />
-          </div>
-
 
         </motion.div>
 
-        <motion.div
-            className="relative z-10 w-full p-3"
-            initial={{backgroundColor: "rgba(255, 255, 255, 0)"}}
-            animate={{backgroundColor: "rgba(255, 255, 255, 1)"}}
-            transition={{duration: 0.5, ease: "easeOut", delay: 1}}
-        >
-          <motion.p
-              className={`font-sans text-black`}
-              initial={{opacity: 0, x: -10}}
-              animate={{opacity: 1, x: 0}}
-              transition={{duration: 0.5, ease: "easeOut", delay: 1}}
-          >
-            <Hyperlink href={"/"} chevron={false} className="dark:before:bg-black/40"
-                  aria-label="Navigate to Home">
-              Chris Wilson
-            </Hyperlink> / {subsection}
-          </motion.p>
-
-          {/* Bottom line */}
-          <motion.div
-              initial = {{ scaleX: 0 }}
-              animate = {{ scaleX: 1 }}
-              transition = {{duration: 0.3, ease: "easeInOut", delay: 0.6}}
-              className="absolute bottom-0 left-0 right-0 h-[2px] bg-white origin-right"
-          />
-        </motion.div>
-
-        <div className="relative z-10 flex flex-col items-start w-full p-8">
-          <motion.h1 className={`font-serif z-10 mb-4 text-4xl md:text-6xl lg:text-6xl 2xl:text-6xl text-left font-bold text-white tracking-wider`}
-                     initial={{y: -25, opacity: 0}}
-                     animate={{y: 0, opacity: 1}}
-                     transition={{duration: 0.5, ease: "easeOut", delay: 0.3}}>
+        <div className="relative max-w-5xl z-10 flex flex-col items-start w-full py-6">
+          <motion.h1 className={`font-serif z-10 mb-4 text-4xl sm:text-6xl md:text-6xl lg:text-6xl 2xl:text-6xl text-left font-bold text-white tracking-wider`}
+                     initial={{x: -25, opacity: 0}}
+                     animate={{x: 0, opacity: 1}}
+                     transition={{duration: 0.5, ease: "easeOut", delay: 0.2}}>
             {title}
           </motion.h1>
 
           { subtitle &&
-            <motion.p className={`font-sans z-10 ml-1 text-xl md:text-2xl lg:text-3xl 2xl:text-4xl text-left text-white tracking-wider`}
-                      initial={{y: -25, opacity: 0}}
-                      animate={{y: 0, opacity: 1}}
+            <motion.p className={`font-sans z-10 ml-1 text-xl sm:text-3xl md:text-3xl lg:text-3xl 2xl:text-4xl text-left text-white tracking-wider`}
+                      initial={{x: -25, opacity: 0}}
+                      animate={{x: 0, opacity: 1}}
                       transition={{duration: 0.5, ease: "easeOut", delay: 0.3}}>
               {subtitle}
             </motion.p>
           }
 
-          {/*<ProgressiveBlur className="h-[300px]" gradientColor="rgb(0,0,0,0.5)"/>*/}
+          <motion.div
+              variants={{
+                hidden: { scaleX: 0 },
+                show: {
+                  scaleX: 1,
+                  transition: { duration: 1, ease: [0.2,0,-0.2,1], delay: 0.4 },
+                },
+              }}
+              initial="hidden"
+              animate="show"
+              className="absolute bottom-0 left-0 w-3/4 h-[2px] bg-white origin-left"
+          />
         </div>
 
       </motion.div>

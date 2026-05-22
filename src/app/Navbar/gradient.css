@@ -1,0 +1,35 @@
+/* Light mode by default */
+.exponential-gradient {
+    background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.612) 19%,
+    rgba(0, 0, 0, 0.518) 34%,
+    rgba(0, 0, 0, 0.422) 47%,
+    rgba(0, 0, 0, 0.327) 56.5%,
+    rgba(0, 0, 0, 0.237) 65%,
+    rgba(0, 0, 0, 0.155) 73%,
+    rgba(0, 0, 0, 0.089) 80.5%,
+    rgba(0, 0, 0, 0.041) 87.5%,
+    rgba(0, 0, 0, 0.013) 93.5%,
+    rgba(0, 0, 0, 0) 100%
+    );
+}
+
+/* Switches to dark mode automatically */
+@media (prefers-color-scheme: dark) {
+    .exponential-gradient {
+        background: linear-gradient(to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,0.738) 19%,
+        rgba(0,0,0,0.541) 34%,
+        rgba(0,0,0,0.382) 47%,
+        rgba(0,0,0,0.256) 56.5%,
+        rgba(0,0,0,0.161) 65%,
+        rgba(0,0,0,0.092) 73%,
+        rgba(0,0,0,0.046) 80.5%,
+        rgba(0,0,0,0.017) 87.5%,
+        rgba(0,0,0,0.005) 93.5%,
+        rgba(0,0,0,0) 100%
+        );
+    }
+}
